@@ -16,7 +16,10 @@
   $name = get_the_title($postID);
   $img = get_the_post_thumbnail_url($postID);
   $link = get_field('url', $postID); 
+  $catch = get_field('catch', $postID);
+  $sup = get_field('sup-button', $postID);
 
+  include 'inc/headTag.php';
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -26,52 +29,97 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="referrer" content="no-referrer-when-downgrade" />
   <title><?= $name ?> 公式サイト</title>
-  <link rel="stylesheet" href="style.css?st=<?=time()?>">
+  <link rel="stylesheet" href="style.css?v=<?=time()?>">
 </head>
 
+
+
+
 <body>
+  <?php include 'inc/bodyTag.php'; ?>
+
+
   <main class="container">
+
     <section class="p-redirect" id="redirect">
+
       <article>
+
         <div class="p-redirect-head">
           <p class="p-redirect-head__loader"></p>
           <p class="p-redirect-head__text">しばらくお待ちください。</p>
         </div>
+
         <dl class="p-redirect-ctt">
+
           <dd class="p-redirect-ctt__thumb">
             <img src="<?=$img?>" alt="<?=$name?>">
-            <p><span class="red"><?=$name?></span>の<br>公式サイトに移動中です。</p>
+            <p><?=$name?>の公式サイトに移動中です。</p>
           </dd>
+
+          <div class="catch-group">
+            <h1>
+              <p class="bold"><?=$catch?></p>        
+            </h1>
+          </div>
+
+          <?php if(!has_tag('no-timer', $postID)) : ?>
+            <div class="timer-group">
+              <div class="timer">
+                <span class="timer-title bold">本日借り入れるなら</span>
+                <div class="timer-js">
+                  <span>あと</span>
+                  <span class="countdown" style="visibility: hidden"></span>
+                </div>
+              </div>
+            </div>
+          <?php endif; ?>
+            
           <dd class="p-redirect-ctt__text">
             <p>ページが移動しない場合は<br><a href="<?= $link; ?>">こちらをクリック</a>してください。</p>
           </dd>
+
+          <?php if(isset($sup) && !empty($sup)) : ?>
+          <div class="p-redirect-ctt__sup">
+            <sup><?=$sup?></sup>
+          </div>
+          <?php endif; ?>
+
         </dl>
+
       </article>
+
     </section>
+
   </main>
 
-  <!-- acs設定用 -->
-  <script>
-    function acsRedirect() {
-      var url = '<?= $link; ?>';
-      var params = location.search.substring(1);
-      var delay_ms = 1000;
-      if (params) {
-        var separator = (url.indexOf('?') === -1) ? '?' : '&';
-        url += separator + params;
-      }
-      setTimeout(function() {
-        location.href = url
-      }, delay_ms);
-    }
 
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", acsRedirect);
-    } else {
-      acsRedirect();
-    }
+
+
+
+
+  <script>
+    // function acsRedirect() {
+    //   var url = '<?= $link; ?>';
+    //   var params = location.search.substring(1);
+    //   var delay_ms = 1000;
+    //   if (params) {
+    //     var separator = (url.indexOf('?') === -1) ? '?' : '&';
+    //     url += separator + params;
+    //   }
+    //   setTimeout(function() {
+    //     location.href = url
+    //   }, delay_ms);
+    // }
+
+    // if (document.readyState === "loading") {
+    //   document.addEventListener("DOMContentLoaded", acsRedirect);
+    // } else {
+    //   acsRedirect();
+    // }
   </script>
-  <!-- / acs設定用 -->
+
+  <script src="timer.js?v=<?=time()?>"></script>
 
 </body>
 

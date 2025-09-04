@@ -158,67 +158,14 @@ function get_icon_maru($data) {
 
 
 
-// リンクパラメータ取得
 function get_link_param($args = []) {
   global $post;
   $post_id = isset($args['post_id']) ? $args['post_id'] : get_the_ID();
-
-  // bank パラメータの追加判定
-    $is_bank_page = is_page(['bank', 'bank-cardloan']) || (isset($_GET['bank']) && $_GET['bank'] === '1');
-  $bank_param = $is_bank_page ? '&bank=1' : '';
-
-  if(isset($_GET['ad'])) {
-    $ad_value = $_GET['ad'];
-    if(strpos($ad_value, '2') !== false || strpos($ad_value, '3') !== false) {
-      $ad_value = preg_replace('/[0-9]/', '', $ad_value);
-    }
-    if($ad_value === 'gss' || $_GET['ad'] === 'gss2' || $_GET['ad'] === 'gss3') {
-      $tmp = get_field('link_g', $post_id);
-      $url = !empty($tmp) ? home_url('/').$tmp : home_url('/').get_field('link', $post_id);
-    } elseif($ad_value === 'yss' || $_GET['ad'] === 'yss2' || $_GET['ad'] === 'yss3') {
-      $tmp = get_field('link_y', $post_id);
-      $url = !empty($tmp) ? home_url('/').$tmp : home_url('/').get_field('link', $post_id);
-    } elseif($ad_value === 'logicad' || $_GET['ad'] === 'logicad2' || $_GET['ad'] === 'logicad3') {
-      $tmp = get_field('link_logi', $post_id);
-      $url = !empty($tmp) ? home_url('/').$tmp : home_url('/').get_field('link', $post_id);
-    } else {
-      $tmp = get_field('link_'.$ad_value, $post_id);
-      $url = !empty($tmp) ? home_url('/').$tmp : home_url('/').get_field('link', $post_id);
-    }
-  } elseif(isset($_GET['t'])) {
-    $tmp = get_field('link_'.$_GET['t'], $post_id);
-    $url = !empty($tmp) ? home_url('/').$tmp : home_url('/').get_field('link', $post_id);
-  } else {
-    $url = home_url('/').get_field('link', $post_id);
-    if(is_front_page()) {
-      $url = home_url('/').get_field('link_g', $post_id);
-    }
-  }
-
-  if(is_page('result')) {
-    if(!isset($_GET['ad'])) {
-      $url = home_url('/').get_field('link_g', $post_id);
-    }
-    if(isset($_GET['search-sp-situation']) && $_GET['search-sp-situation'] == '初めて') {
-      $url = $url."?first=1";
-    } else {
-      $url = $url."?sgss=1";
-    }
-  }
-
-  if(is_page('first')) {
-    if(!isset($_GET['ad'])) {
-      $url = home_url('/').get_field('link_g', $post_id);
-    }
-    $url = $url."?first=1";
-  }
-  // bank パラメータを URL に追加
-  // URLにすでにパラメータがある場合は & で、ない場合は ? で連結
-  $separator = strpos($url, '?') !== false ? '&' : '?';
-  return $url . ($is_bank_page ? $separator . 'bank=1' : '');
+  $post_name = get_post_field('post_name', $post_id);
+  $url = home_url("/link?item={$post_name}");
+  
+  return $url;
 }
-
-
 
 
 
@@ -293,32 +240,9 @@ function get_url_param($atts = []) {
     'post_id' => $post->ID, // デフォルトは現在の投稿ID
   ], $atts);
   
-  $url = home_url('/').get_field('link', $atts['post_id']); 
+  $url = home_url("/link?item={$post->post_id}");
 
-  if(isset($_GET['ad'])) {
-    switch($_GET['ad']) {
-      case 'gss':
-        $urlP = home_url('/').get_field('link_g', $atts['post_id']);
-        break;
-      case 'yss':
-        $urlP = home_url('/').get_field('link_y', $atts['post_id']);
-        break;
-      case 'logicad':
-        $urlP = home_url('/').get_field('link_logi', $atts['post_id']);
-        break;
-      default:
-        $urlP = home_url('/').get_field('link_'.$_GET['ad'], $atts['post_id']);
-        break;
-    }
-    // カスタムリンクが存在する場合はそちらを使用
-    if(!empty($urlP)) {
-      return $urlP;
-    } else {
-      return $url;
-    }
-  } else {
-    return $url;
-  }
+  return $url;
 }
 add_shortcode('get_url', 'get_url_param');
 

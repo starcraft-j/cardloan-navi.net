@@ -38,9 +38,3 @@ $review2 = get_field('review2');
 $reviews = array($review1, $review2);
 
 
-
-if(is_page('bank') || is_page('bank-cardloan')  || (is_page('result') && isset($_GET['bank']))) {
-  $urlP = $urlP."?bank=1";
-  $url = $url."?bank=1";
-} 
-

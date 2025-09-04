@@ -25,6 +25,9 @@ const connect = ftp.create({
 const ftpUploadFiles = [
   '*.php',
 ]
+const ftpUploadFilesLink = [
+  './link/**/*',
+]
 const ftpUploadFilesInc = [
   './inc/*.php',
 ]
@@ -41,15 +44,19 @@ const ftpUploadFilesJs = [
   './assets/js/*.js',
 ]
 const ftpUploadFilesCss = [
-  'assets/css/*.css',
+  './assets/css/*.css',
 ]
 const ftpUploadFilesNewCommon = [
-  'assets/dist/_common/*.webp',
+  './assets/dist/_common/*.webp',
 ]
 const ftpUploadFilesNewFront = [
-  'assets/dist/front/*.webp',
+  './assets/dist/front/*.webp',
 ]
-const remoteDistDir = '/cardloan-navi.net/public_html/wp-content/themes/cardloan'
+
+
+const domain = 'cardloan-navi.net/public_html/'
+const remoteDistDirLink = domain + 'link/'
+const remoteDistDir = domain + 'wp-content/themes/cardloan/'
 const remoteDistDirInc = remoteDistDir + '/inc'
 const remoteDistDirTag = remoteDistDir + '/tag'
 const remoteDistDirParts = remoteDistDir + '/parts'
@@ -63,6 +70,11 @@ const vinylFtp = () => {
   return src(ftpUploadFiles, { buffer: false })
     .pipe(connect.newerOrDifferentSize(remoteDistDir))
     .pipe(connect.dest(remoteDistDir))
+}
+const vinylFtpLink = () => {
+  return src(ftpUploadFilesLink, { buffer: false })
+    .pipe(connect.newerOrDifferentSize(remoteDistDirLink))
+    .pipe(connect.dest(remoteDistDirLink))
 }
 const vinylFtpInc = () => {
   return src(ftpUploadFilesInc, { buffer: false })
@@ -115,6 +127,15 @@ const styles = () =>
     .pipe(dest("./assets/css"));
 
 
+const stylesLink = () =>
+  src("./link/style.scss")
+    .pipe(plumber())
+    .pipe(sassGlob())
+    .pipe(sass({ outputStyle: 'compressed' }))
+    .pipe(autoprefixer())
+    .pipe(dest("./link/"));
+
+
 const imageNew = () =>
   src("./assets/img/**/*")
     .pipe(imagemin())
@@ -134,12 +155,16 @@ const jsMinify = () => {
 };
 
 
+export { stylesLink };
+
+
 const watchFile = () => {
-  watch("sass/*.scss", styles)
-  watch("assets/scss/**/*.scss", styles)
+  watch("./assets/scss/**/*.scss", styles)
+  watch("./link/style.scss", stylesLink)
   watch("./assets/img/**/*", imageNew);
-  watch("assets/js/init.js", jsMinify);
+  watch("./assets/js/init.js", jsMinify);
   watch(ftpUploadFiles, vinylFtp);
+  watch(ftpUploadFilesLink, vinylFtpLink);
   watch(ftpUploadFilesInc, vinylFtpInc);
   watch(ftpUploadFilesTag, vinylFtpTag);
   watch(ftpUploadFilesParts, vinylFtpParts);

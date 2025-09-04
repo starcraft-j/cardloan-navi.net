@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+/*----------------------------------------
+	mediaquery
+----------------------------------------*/
+
+
+$breakpoint: (
+	pc: 'screen and (min-width: 768px)',
+);
+@mixin mq($bp) {
+	@media #{map-get($breakpoint, $bp)} {
+		@content;
+	}
+}
+
+/*----------------------------------------
+	fontFamily
+----------------------------------------*/
+
+@mixin Gothic-Hira {
+	font-family: "ヒラギノ角ゴシック ProN","ヒラギノ角ゴシック","Hiragino Sans","游ゴシック体",YuGothic,"游ゴシック","Yu Gothic","メイリオ"!important;
+}

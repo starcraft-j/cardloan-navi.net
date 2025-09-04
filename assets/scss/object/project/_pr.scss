@@ -1,0 +1,29 @@
+@charset "utf-8";
+
+/*----------------------------------------
+  @use
+----------------------------------------*/
+@use "foundation/" as *;
+
+/*----------------------------------------
+	p-pr
+----------------------------------------*/
+.p-pr {
+	&__main {
+		@include mq(pc) {
+			padding: 10px 2rem;
+			ul {
+				display: flex;
+				gap: 1rem;
+				li {
+					flex: 1;
+					padding: 4px;
+					border: 1px solid $color-base-gray;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
+			}
+		}
+	}
+}

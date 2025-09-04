@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+/*----------------------------------------
+  @use
+----------------------------------------*/
+@use "foundation/" as *;
+
+/*----------------------------------------
+	p-choose
+----------------------------------------*/
+.p-choose {
+  padding: 10px;
+  @include mq(pc) {
+    padding: 2rem;
+  }
+  .text-box {
+    padding: 1rem;
+    @include mq(pc) {
+      font-size: 1.8rem;
+      padding: 2rem;
+    }
+  }
+}

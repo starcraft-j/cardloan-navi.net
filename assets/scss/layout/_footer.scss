@@ -1,0 +1,66 @@
+@charset "utf-8";
+
+/*----------------------------------------
+  @use
+----------------------------------------*/
+@use "foundation/" as *;
+
+/*----------------------------------------
+	l-footer
+----------------------------------------*/
+.l-footer {
+	background: #5c5c5b;
+	font-size: 12px;
+	display: flex;
+	flex-direction: column;
+	&__links {
+		display: flex;
+		flex-direction: column;
+		padding: 10px 0;
+		@include mq(pc) {
+			justify-content: center;
+			flex-direction: row;
+			gap: 40px;
+		}
+		a {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			font-size: 0.8rem;
+			padding: 1rem 20px;
+			color: $color-white;
+			img {
+				width: 10px;
+				height: 10px;
+			}
+		}
+	}
+	&__copy {
+		padding: 10px;
+		background: $color-white;
+		color: $color-black;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 4px;
+		order: 3;
+		@include mq(pc) {
+			padding: 20px;
+		}
+		img {
+			width: 100px;
+			vertical-align: baseline;
+			transform: translateY(-2px);
+		}
+	}
+	&__pr {
+		background: #918d88;
+		color: $color-white;
+		padding: 10px 1rem;
+		order: 2;
+		@include mq(pc) {
+			padding: 1rem;
+			text-align: center;
+		}
+	}
+}

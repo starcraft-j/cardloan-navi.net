@@ -1,0 +1,97 @@
+@charset "utf-8";
+
+/*----------------------------------------
+  @use
+----------------------------------------*/
+@use "foundation/" as *;
+
+/*----------------------------------------
+	p-choice
+----------------------------------------*/
+.p-choice {
+  background: $color-secondary;
+  padding: 20px 10px;
+  @include mq(pc) {
+    padding: 40px 20px;
+  }
+  &__head {
+    text-align: center;
+    figure {
+      padding: 1rem 0;
+      @include mq(pc) {
+        padding: 2rem 0;
+      }
+      img {
+        width: 80%;
+        @include mq(pc) {
+          width: 600px;
+        }
+      }
+    }
+  }
+  &__main {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    .choice-box {
+      padding: 20px;
+      width: 90%;
+      background: $color-white;
+      border-radius: 20px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      @include mq(pc) {
+        width: 70%;
+        padding: 2rem 4rem 4rem;
+      }
+      &__num {
+        width: 22vw;
+        height: 22vw;
+        padding: 20px;
+        margin-bottom: -2rem;
+        top: -2rem;
+        position: relative;
+        background: $color-white;
+        border-radius: 50%;
+        @include mq(pc) {
+          width: 80px;
+          height: 80px;
+          padding: 22px;
+          top: -3rem;
+          margin-bottom: -2rem;
+        }
+      }
+      &__title {
+        font-size: 6vw;
+        font-weight: 700;
+        color: rgb(10.7247706422,114.1422018349,156.2752293578);
+        @include mq(pc) {
+          font-size: 2rem;
+        }
+      }
+      &__icon {
+        width: 40%;
+        @include mq(pc) {
+          width: 200px;
+          text-align: center;
+          padding: 30px 0 40px;
+        }
+      }
+      &__text {
+        padding: 1rem 3rem;
+        font-size: 1rem;
+        @include mq(pc) {
+          padding: 0;
+          font-size: 1.6rem;
+        } 
+      }
+    }
+  }
+}

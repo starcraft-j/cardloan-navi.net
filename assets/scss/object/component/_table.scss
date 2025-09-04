@@ -1,0 +1,77 @@
+@charset "utf-8";
+
+/*----------------------------------------
+  @use
+----------------------------------------*/
+@use "foundation/" as *;
+
+/*----------------------------------------
+	c-table
+----------------------------------------*/
+.c-table {
+	width: 100%;
+	table-layout: fixed;
+	img {
+		width: 16px;
+		@include mq(pc) {
+			width: 26px;
+		}
+	}
+	th, td {
+		text-align: center;
+		vertical-align: middle;
+	}
+	td {
+		background-repeat: no-repeat;
+		background-size: 20%;
+		background-position: center;
+		text-align: center;
+	}
+  &.-tab {
+    thead th {
+      cursor: pointer;
+      &.sort {
+        span {
+          position: relative;
+          display: block;
+          width: 100%;
+          height: 100%;
+          padding-bottom: 6px;
+          @include mq(pc) {
+            padding-bottom: 10px;
+          }
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: -7px; 
+            left: 50%;
+            transform: translateX(-50%);
+            text-shadow: 1px 1px 0  $color-secondary;
+            width: 22px;
+            height: 12px;
+            background: url(../dist/front/icon-sort_desc-v2.svg) no-repeat center center / contain;
+            @include mq(pc) {
+              width: 28px;
+              height: 16px;
+            }
+          }
+        }
+      }
+      &.asc {
+        span {
+          &::after {
+            background-image: url(../dist/front/icon-sort_asc.svg) ;
+          }
+        }
+      }
+      &.desc {
+        span {
+          &::after {
+            background-image: url(../dist/front/icon-sort_desc-v2.svg) no-repeat center center / contain;
+          }
+        }
+      }
+      
+    }
+  }
+}

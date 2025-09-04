@@ -1,0 +1,70 @@
+@charset "utf-8";
+
+/*----------------------------------------
+  @use
+----------------------------------------*/
+@use "foundation/" as *;
+
+/*----------------------------------------
+	p-step
+----------------------------------------*/
+.p-step {
+  padding: 10px 1rem;
+  margin: 10px auto;
+  @include mq(pc) {
+    padding: 2rem;
+    margin: 2rem auto;
+  }
+  &__head {
+    figure {
+      text-align: center;
+      margin-bottom: 1rem;
+      img {
+        width: 90%;
+        @include mq(pc) {
+          width: 70%;
+        }
+      }
+    }
+  }
+  &__main {
+    .step-item {
+			width: 100%;
+      padding: 10px 0;
+      background: $color-base-gray;
+      border-radius: 10px;
+      &__text {
+        padding: 10px;
+        font-size: 0.8rem;
+        overflow: hidden;
+        @include mq(pc) {
+          padding: 40px;
+          font-size: 1.8rem;
+        }
+				&:after {
+					content: "";
+					display: block;
+					clear: both;
+				}
+        img {
+          width: 100px;
+          height: 100%;
+          float: right;
+          margin-left: 10px;
+          vertical-align: top;
+          @include mq(pc) {
+            width: 200px;
+          }
+        }
+      }
+    }
+    .img-step-arrow {
+      display: block;
+      width: 30px;
+      margin: auto;
+      @include mq(pc) {
+        width: 90px;
+      }
+    }
+  }
+}

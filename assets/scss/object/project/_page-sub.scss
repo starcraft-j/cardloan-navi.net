@@ -1,0 +1,250 @@
+@charset "utf-8";
+
+/*----------------------------------------
+  @use
+----------------------------------------*/
+@use "foundation/" as *;
+
+/*----------------------------------------
+	p-page-sub
+----------------------------------------*/
+.p-page-sub {
+  padding-bottom: 2rem;
+  &__head {
+    .title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: $color-secondary;
+      border-bottom: 2px solid $color-secondary-l;
+      background: #f0f8ff;
+      padding: 1rem;
+      @include mq(pc) {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+  &__main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    @include mq(pc) {
+      gap: 2rem;
+    }
+    .tablebox, .textbox {
+      padding: 0 1rem;
+      @include mq(pc) {
+        padding: 1rem 2rem 0;
+      }
+      p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+        
+      }
+    }
+    .textbox {
+      @include mq(pc) {
+        padding: 1rem 2rem;
+      }
+      p {
+        @include mq(pc) {
+          font-size: 1rem;
+        }
+      }
+    }
+    .tablebox {
+      @include mq(pc) {
+        padding: 0 2rem 1rem;
+      }
+    }
+    .listbox {
+      padding: 0 1rem;
+      @include mq(pc) {
+        padding: 0 2rem;
+      }
+      ul {
+        padding: 1rem;
+        background: #f0f8ff; 
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        border-radius: 10px;
+        @include mq(pc) {
+          padding: 2rem;
+        }
+      }
+      li {
+        font-size: .8rem;
+        font-weight: 600;
+        position: relative;
+        @include mq(pc) {
+          font-size: 1rem;
+          font-weight: normal;
+        }
+        &:before {
+          content: "●";
+          color: #f0a63b;
+          font-size: .7rem;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          margin-right: 10px;
+        }
+      }
+    }
+    a {
+      display: block;
+      margin: 1.4rem auto 0;
+      width: 60%;
+      text-align: center;
+    }
+    table {
+      width: 100%;
+      line-height: 1.2;
+      border: 1px solid #f5f4ef;
+      table-layout: fixed!important;
+      margin-top: 1rem;
+      th, td {
+        font-size: 0.7rem;
+        padding: 14px 10px;
+        vertical-align: middle;
+        @include mq(pc) {
+          font-size: 14px;
+          padding:  20px;
+        }
+      }
+      th {
+        background: #f5f4ef;
+        border-right: 1px solid #f5f4ef;
+        text-align: center;
+      }
+      &.table-survey {
+        margin-top: 0;
+        @include mq(pc) {
+          margin-top: 1rem ;
+        }
+        th, td {
+          vertical-align: middle;
+          padding: 8px 4px !important;
+        }
+        th {
+          font-size: 9px;
+          background: hsl(50,23.0769230769%,84.9019607843%);
+          padding: 8px 10px!important;
+          @include mq(pc) {
+            font-size: 0.7rem;
+          }
+        }
+        td {
+          text-align: center;
+          border-right: 1px solid #f5f4ef;
+        }
+        tr{
+          border-bottom: 1px solid #f5f4ef;
+          &:nth-child(odd) {
+            &:not(:first-child) {
+              background: #f5f4ef;
+            }
+          }
+        }
+        tbody {
+          td:first-child {
+            text-align: center;
+            background: $color-white;
+          }
+        }
+      }
+    }
+    h2 {
+      font-size: 1.1rem;
+      padding: 1rem 1rem 1rem 2rem;
+      background: #f3f1ee;
+      position: relative;
+      @include mq(pc) {
+        font-size: 1.4rem;
+      }
+      &:before {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background-color: #f0a63b;
+        color: #fff;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    }
+    h3 {
+      padding: 4px 10px 4px 30px;
+      border-top: 2px solid $color-secondary;
+      border-bottom: 2px solid $color-secondary;
+      width: 95%;
+      margin: auto;
+      color: darken($color-secondary, 10%);
+      position: relative;
+      &:before {
+        content: "";
+        position: absolute;
+        background-image: url(../../images/icons/title-icon.svg);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 10px;
+        height: 10px;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      @include mq(pc) {
+        font-size: 1.2rem;
+        padding: 10px 10px 10px 30px;
+      }
+    }
+  }
+  &.-archive {
+    padding: 1rem;
+    background: #f0f8ff;
+    @include mq(pc) {
+      padding: 2rem;
+    }
+    .p-page__main {
+      background: $color-white;
+      padding: 10px;
+      li {
+        width: 100%;
+        padding: 0 0 0 20px;
+        position: relative;
+        @include mq(pc) {
+          padding: 13px 20px 10px 30px;
+        }
+        &:before {
+          content: "";
+          position: absolute;
+          left: 10px;
+          top: 50%;
+          width: 8px;
+          height: 8px;
+          border-left: 2px solid $color-secondary;
+          border-bottom: 2px solid $color-secondary;
+          transform: rotate(226deg) translateY(-50%);
+          transform-origin: center 0px;
+          @include mq(pc) {
+            left: 20px;
+          }
+        }
+        a {
+          font-size: 0.9rem;
+          font-weight: 600;
+          padding: 10px;
+          display: block;
+          @include mq(pc) {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
+}

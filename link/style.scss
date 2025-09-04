@@ -1,0 +1,120 @@
+@charset "utf-8";
+
+@use "../assets/scss/foundation" as *;
+
+body {
+  text-align: center;
+  background: $color-primary-l;
+  @include Gothic-Hira;
+}
+
+/*----------------------------------------
+	p-redirect
+----------------------------------------*/
+.p-redirect {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  @include mq(pc) {
+    height: 100vh;
+    padding: 2rem 1rem;
+  }
+  &-head {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 10px 2rem;
+    @include mq(pc) {
+      padding: 1rem 1rem 2rem;
+    }
+    &__loader {
+      margin: 0 auto 2rem;
+      font-size: 7px;
+      width: 1em;
+      height: 1em;
+      border-radius: 50%;
+      position: relative;
+      text-indent: -9999em;
+      animation: redirectLoadAnimation 1.1s infinite ease;
+      transform: translateZ(0);
+      @include mq(pc) {
+        font-size: 10px;
+        margin: 0 auto 4rem;
+      }
+    }
+  }
+  &-ctt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    background: $color-white;
+    padding: 3rem 1rem;
+    border-radius: 10px;
+    @include mq(pc) {
+      padding: 4rem 2rem;
+    }
+    &__thumb {
+      img {
+        width: 40%;
+      }
+      p {
+        width: 90%;
+        margin: auto;
+        text-align: center;
+        padding: 10px;
+        background: $color-white;
+        border-radius: 50px;
+      }
+    }
+    &__text {
+      font-size: 0.8rem;
+      a {
+        color: $color-primary-d;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+/*----------------------------------------
+	animation
+----------------------------------------*/
+.red {
+  color: $color-red;
+  font-weight: 600;
+}
+
+/*----------------------------------------
+	animation
+----------------------------------------*/
+@keyframes redirectLoadAnimation {
+  0%,
+  100% {
+    box-shadow: 0em -2.6em 0em 0em $color-primary, 1.8em -1.8em 0 0em $color-base-grey, 2.5em 0em 0 0em $color-base-grey, 1.75em 1.75em 0 0em $color-base-grey, 0em 2.5em 0 0em $color-base-grey, -1.8em 1.8em 0 0em $color-base-grey, -2.6em 0em 0 0em $color-primary-l, -1.8em -1.8em 0 0em $color-primary-l;
+  }
+  12.5% {
+    box-shadow: 0em -2.6em 0em 0em $color-primary-l, 1.8em -1.8em 0 0em $color-primary, 2.5em 0em 0 0em $color-base-grey, 1.75em 1.75em 0 0em $color-base-grey, 0em 2.5em 0 0em $color-base-grey, -1.8em 1.8em 0 0em $color-base-grey, -2.6em 0em 0 0em $color-base-grey, -1.8em -1.8em 0 0em $color-primary-l;
+  }
+  25% {
+    box-shadow: 0em -2.6em 0em 0em $color-primary-l, 1.8em -1.8em 0 0em $color-primary-l, 2.5em 0em 0 0em $color-primary, 1.75em 1.75em 0 0em $color-base-grey, 0em 2.5em 0 0em $color-base-grey, -1.8em 1.8em 0 0em $color-base-grey, -2.6em 0em 0 0em $color-base-grey, -1.8em -1.8em 0 0em $color-base-grey;
+  }
+  37.5% {
+    box-shadow: 0em -2.6em 0em 0em $color-base-grey, 1.8em -1.8em 0 0em $color-primary-l, 2.5em 0em 0 0em $color-primary-l, 1.75em 1.75em 0 0em $color-primary, 0em 2.5em 0 0em $color-base-grey, -1.8em 1.8em 0 0em $color-base-grey, -2.6em 0em 0 0em $color-base-grey, -1.8em -1.8em 0 0em $color-base-grey;
+  }
+  50% {
+    box-shadow: 0em -2.6em 0em 0em $color-base-grey, 1.8em -1.8em 0 0em $color-base-grey, 2.5em 0em 0 0em $color-primary-l, 1.75em 1.75em 0 0em $color-primary-l, 0em 2.5em 0 0em $color-primary, -1.8em 1.8em 0 0em $color-base-grey, -2.6em 0em 0 0em $color-base-grey, -1.8em -1.8em 0 0em $color-base-grey;
+  }
+  62.5% {
+    box-shadow: 0em -2.6em 0em 0em $color-base-grey, 1.8em -1.8em 0 0em $color-base-grey, 2.5em 0em 0 0em $color-base-grey, 1.75em 1.75em 0 0em $color-primary-l, 0em 2.5em 0 0em $color-primary-l, -1.8em 1.8em 0 0em $color-primary, -2.6em 0em 0 0em $color-base-grey, -1.8em -1.8em 0 0em $color-base-grey;
+  }
+  75% {
+    box-shadow: 0em -2.6em 0em 0em $color-base-grey, 1.8em -1.8em 0 0em $color-base-grey, 2.5em 0em 0 0em $color-base-grey, 1.75em 1.75em 0 0em $color-base-grey, 0em 2.5em 0 0em $color-primary-l, -1.8em 1.8em 0 0em $color-primary-l, -2.6em 0em 0 0em $color-primary, -1.8em -1.8em 0 0em $color-base-grey;
+  }
+  87.5% {
+    box-shadow: 0em -2.6em 0em 0em $color-base-grey, 1.8em -1.8em 0 0em $color-base-grey, 2.5em 0em 0 0em $color-base-grey, 1.75em 1.75em 0 0em $color-base-grey, 0em 2.5em 0 0em $color-base-grey, -1.8em 1.8em 0 0em $color-primary-l, -2.6em 0em 0 0em $color-primary-l, -1.8em -1.8em 0 0em $color-primary;
+  }
+}

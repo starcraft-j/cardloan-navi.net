@@ -1,0 +1,204 @@
+@charset "utf-8";
+
+/*----------------------------------------
+  @use
+----------------------------------------*/
+@use "foundation/" as *;
+
+/*----------------------------------------
+	p-timer
+----------------------------------------*/
+.p-timer {
+  &-t2 {
+		padding: 2rem 1rem;
+		@include mq(pc) {
+			padding: 4rem 1rem;
+		}
+		.timer {
+			@include mq(pc) {
+				width: 90%;
+				margin: auto;
+			}
+			dt {
+				padding: 4px;
+				border-radius: 10px 10px 0 0;
+				background: $color-gold;
+				font-weight: 700;
+				position: relative;
+				text-align: center;
+				border-bottom: 5px solid $color-ylw;
+				@include mq(pc) {
+					padding: 8px;
+					font-size: 1.5rem;
+				}
+				img {
+					position: absolute;
+					width: 10vw;
+					height: 10vw;
+					padding: 4px;
+					top: -13px;
+					right: 10px;
+					background: $color-gold;
+					border-radius: 50%;
+					@include mq(pc) {
+						width: 80px;
+						height: 80px;
+						right: 190px;
+						padding: 10px;
+					}
+				}
+			}
+			dd {
+				font-size: 7vw;
+				padding: 10px;
+				border: 2px solid $color-gold;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background: $color-white;
+				@include mq(pc) {
+					border-width: 4px;
+					padding: 20px;
+					font-size: 3rem;
+				}
+				span {
+					font-weight: 700;
+					&.countdown {
+						color:  $color-salmon;
+						.normal {
+							color: $color-black;
+						}
+					}
+				}
+			}
+		}
+	}
+  &-v3 {
+    padding: 10px 10px 1rem;
+    @include mq(pc) {
+      padding: 10px 1rem;
+    }
+    .timer-v3 {
+      padding: 10px;
+      border: 2px solid $color-black;
+      position: relative;
+      border-radius: 20px;
+      @include mq(pc) {
+        margin: auto;
+        width: 80%;
+        padding: 1rem;
+      }
+      &__title {
+        display: flex;
+        align-items: center;
+        padding: 10px 0;
+        border-radius: 10px 10px 0 0;
+        background: $color-gold;
+        p {
+          margin: auto;
+          text-align: center;
+          font-weight: 700;
+          @include mq(pc) {
+            font-size: 2rem;
+          }
+        }
+        img {
+          position: absolute;
+          width: 13vw;
+          height: 13vw;
+          padding: 7px;
+          background: $color-gold;
+          border-radius: 50%;
+          top: -13px;
+          right: 10%;
+          @include mq(pc) {
+            width: 80px;
+            height: 80px;
+            top: -8px;
+            padding: 10px;
+          }
+        }
+      }
+      &__js {
+        background: $color-black;
+        border-radius: 0 0 10px 10px;
+        padding: 10px 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        .ato {
+          color: $color-gold;
+          @include mq(pc) {
+            font-size: 2rem;
+          }
+        }
+        .countdown {
+          font-size: 1.7rem;
+          font-weight: bold;
+          background: $color-white;
+          color: $color-salmon;
+          padding: 0 10px;
+          @include mq(pc) {
+            font-size: 3rem;
+          }
+          .normal {
+            font-weight: normal;
+            color: $color-black;
+            font-size: 1rem;
+            @include mq(pc) {
+              font-size: 1.4rem;
+            }
+          }
+        }
+      }
+      &__text {
+        padding: 10px;
+        @include mq(pc) {
+          padding: 30px;
+        }
+        h3 {
+          font-size: 1.1rem;
+          padding-left: 2.4rem;
+          padding-bottom: 10px;
+          position: relative;
+          color: $color-red;
+          border-bottom: 1px dashed;
+          @include mq(pc) {
+            font-size: 2.4rem;
+            border-bottom-width: 2px;
+            padding: 0 1rem 1rem 4rem;
+          }
+          &:before {
+            content: "!";
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: $color-red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            left: 0;
+            top: 40%;
+            transform: translateY(-50%);
+            color: $color-white;
+            border-radius: 50%;
+            @include mq(pc) {
+              width: 50px;
+              height: 50px;
+              top: 40%;
+            }
+          }
+        }
+        p {
+          font-size: 0.8rem;
+          padding: 1rem 1rem 0;
+          @include mq(pc) {
+            font-size: 1.8rem;
+            padding: 1rem 1.4rem;
+          }
+        }
+      }
+    }
+  }
+}

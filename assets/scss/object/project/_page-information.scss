@@ -1,0 +1,738 @@
+@charset "utf-8";
+
+/*----------------------------------------
+  @use
+----------------------------------------*/
+@use "foundation/" as *;
+
+/*----------------------------------------
+	p-page-information
+----------------------------------------*/
+.p-page-information {
+	.information-content {
+		&.-hidden {
+			padding: 10px;
+			@include mq(pc) {
+				padding: 4rem 2rem;
+			}
+		}
+		&.-examination {
+			padding: 0;
+		}
+		&.-first {
+			padding: 10px;
+			@include mq(pc) {
+				padding: 2rem;
+			}
+		}
+    &.-interest, &.-summary {
+      @include mq(pc) {
+        padding: 1rem;
+      }
+    }
+    &.-woman {
+      background: #fff5f9;
+      @include mq(pc) {
+        margin: 1rem;
+        border-radius: 30px;
+      }
+    }
+    &.-housewife {
+      padding: 0 0 2rem;
+    }
+    &.-bank {
+      @include mq(pc) {
+        padding: 0 2rem 2rem;
+      }
+    }
+    &.-bank-cardloan {
+      border: 1px solid ;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 10px;
+      @include mq(pc) {
+        margin: 2rem 2rem 3rem;
+      }
+    }
+
+
+		&__head {
+			text-align: center;
+			&-hidden {
+				padding: 1rem 2rem;
+				@include mq(pc) {
+					padding-bottom: 3rem;
+					img {
+						width: 600px;
+					}
+				}
+			}
+      &-interest {
+        padding: 1rem;
+				@include mq(pc) {
+          padding: 2rem 0 1rem;
+          img {
+            width: 70%;
+          }
+        }
+      }
+			&-examination {
+				padding: 0;
+				.description {
+					border: 10px solid #71d191;
+					padding: 10px;
+					background: $color-white;
+					@include mq(pc) {
+						padding: 30px;
+						border-width: 20px;
+					}
+					img {
+						width: 20vw;
+						margin: 10px;
+						float: right;
+					}
+					p {
+						font-size: .9rem;
+						text-align: left;
+						@include mq(pc) {
+							font-size: 1.8rem;
+						}
+					}
+				}
+			}
+			&-first {
+				@include mq(pc) {
+					img {
+						width: 70%;
+					}
+				}
+			}
+      &-summary {
+        padding: 1rem 0;
+        @include mq(pc) {
+          padding: 2rem 0 1rem;
+        }
+        img {
+          width: 90%;
+          @include mq(pc) {
+            width: 70%;
+          }
+        }
+      }
+      &-woman {
+        padding: 10px 0 0;
+        img {
+          width: 90%;
+        }
+        @include mq(pc) {
+          padding: 1rem 0 0;
+          img {
+            width: 70%;
+          }
+        }
+      }
+      &-housewife {
+        padding: 1.5rem 0;
+        img {
+          width: 90%;
+          @include mq(pc) {
+            width: 60%;
+          }
+        }
+      }
+      &-bank {
+        padding: 10px 0 0;
+        img {
+          width: 90%;
+          
+        }
+        @include mq(pc) {
+          padding: 2rem 0 1rem;
+          img {
+            width: 70%;
+          }
+        }
+      }
+		}
+
+
+		&__main {
+			padding: 10px;
+			&-examination {
+				@include mq(pc) {
+					padding: 4rem 2rem;
+				}
+			}
+			
+			&-license {
+				padding: 10px;
+				@include mq(pc) {
+					padding: 20px;
+				}
+				.flex-box {
+					display: flex;
+					padding: 10px;
+					position: relative;
+					gap: 2rem;
+					border-radius: 10px;
+					@include mq(pc) {
+						padding: 2rem;
+						gap: 2.4rem;
+					}
+					.left {
+						width: 38px;
+						height: 38px;
+						border-radius: 50%;
+						padding: 11px;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						background: $color-black;
+						position: relative;
+						@include mq(pc) {
+							width: 80px;
+							height: 80px;
+							min-width: 80px;
+							min-height: 80px;
+							img {
+								width: 50%;
+							}
+						}
+						&:after {
+							content: "";
+							position: absolute;
+							width: 5px;
+							height: 5px;
+							right: -10px;
+							bottom: 0;
+							background: $color-black;
+							border-radius: 50%;
+							@include mq(pc) {
+								width: 10px;
+								height: 10px;
+							}
+						}
+						&.-answer {
+							background: $color-secondary;
+							&:after {
+								background: $color-secondary;
+							}
+						}
+					}
+					.right {
+						width: 100%;
+						@include mq(pc) {
+							font-size: 1.8rem;
+						}
+					}
+				}
+				&__question {
+					background: $color-secondary;
+					color: $color-white;
+					margin-bottom: 10px;
+					.qna-deco-icon {
+						position: absolute;
+						bottom: 0;
+						right: 0;
+						width: 10vw;
+						@include mq(pc) {
+							width: 90px;
+						}
+					}
+				}
+				&__answer {
+					background: $color-white;
+					box-shadow: 0 0 0 4px #68b9dc inset;
+					padding: 14px!important;
+					@include mq(pc) {
+						padding: 2rem!important;
+					}
+					.qna-deco-icon {
+						position: absolute;
+						bottom: -7px;
+						left: 13px;
+						width: 12vw;
+						@include mq(pc) {
+							width: 100px;
+							bottom: -12px;
+							left: 24px;
+						}
+					}
+				}
+			}
+
+      &-interest {
+        padding: 10px;
+        background: #d2e2f3;
+        @include mq(pc) {
+          padding: 2rem;
+        }
+      }
+
+      &-summary {
+        padding: 10px;
+        background: #ff795b;
+        @include mq(pc) {
+          padding: 2rem;
+        }
+      }
+
+      &-woman {
+        padding: 0  10px 10px;
+        @include mq(pc) {
+          padding: 0 2rem 2rem;
+        }
+      }
+
+      &-housewife {
+        padding: 0;
+        width: 95%;
+        margin: auto;
+        border: 2px solid pink;
+        border-radius: 20px;
+        overflow: hidden;
+        @include mq(pc) {
+          width: 90%;
+          padding-bottom: 2rem;
+        }
+      }
+
+
+			.point-item {
+				small {
+          padding-top: 1rem;
+          display: block;
+        }
+				&-hidden {
+					padding: 10px;
+					border: 4px solid $color-secondary;
+					border-radius: 20px;
+					position: relative;
+					@include mq(pc) {
+						padding: 10px 30px;
+					}
+					&:not(:last-child) {
+						margin-bottom: 1rem;
+					}
+					&__title {
+						text-align: center;
+						padding: 10px 0;
+						font-size: 1.1rem;
+						@include mq(pc) {
+							padding: 1rem 0px;
+							font-size: 1.8rem;
+						}
+					}
+					&__text {
+						display: flex;
+						align-items: center;
+						.left {
+							padding: 10px;
+							width: 50%;
+							@include mq(pc) {
+								padding: 1rem;
+								width: 30%;
+							}
+						}
+						.right {
+							padding: 10px;
+							font-size: .8rem;
+							width: 100%;
+							@include mq(pc) {
+								padding: 1rem; 
+								font-size: 1.6rem;
+							}
+						}
+					}
+					.number {
+						position: absolute;
+						width: 20vw;
+						top: -14px;
+						left: -7px;
+						@include mq(pc) {
+							width: 130px;
+							left: -9px;
+							top: -14px;
+						}
+					}
+				}
+				
+				&-examination {
+					border: 1px solid #f5f4ef;
+					border-radius: 0;
+					&:not(:last-child) {
+						margin-bottom: 1rem;
+					}
+					
+					&__title {
+						display: flex;
+						align-items: center;
+						gap: 10px;
+						background: #f7f7f0;
+						height: 60px;
+						gap: 10px;
+						@include mq(pc) {
+							height: 90px;
+							gap: 1.2rem;
+						}
+						.number {
+							width: min(14vw,80px);
+							background: #40a057;
+							height: 100%;
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							img {
+								width: 60%;
+							}
+						}
+						.text {
+							color: #40a057;
+							line-height: 1.2;
+							text-align: left;
+							font-size: 1.1rem;
+							padding-right: 5vw;
+							@include mq(pc) {
+								font-size: 1.8rem;
+							}
+						}
+					}
+					&__text {
+						padding: 1rem;
+						font-size: 0.9rem;
+						@include mq(pc) {
+							padding: 2rem;
+							font-size: 1.8rem;
+						}
+					}
+				}
+
+				&-first {
+					background: #f5f4ef;
+					padding: 20px;
+					border-radius: 10px;
+					&:not(:last-child) {
+						margin-bottom: 10px;
+					}
+					&__title {
+						img {
+							@include mq(pc) {
+								width: 70%;
+							}
+						}
+					}
+					&__text {
+						padding: 10px;
+						font-size: 0.8rem;
+						@include mq(pc) {
+							padding: 40px;
+							font-size: 1.8rem;
+						}
+						img {
+							width: 14vw;
+							float: right;
+							margin: 0 0 10px 10px;
+							@include mq(pc) {
+								width: 150px;
+							}
+						}
+					}
+				}
+
+        &-interest {
+          background: $color-white;
+          &:not(:last-child) {
+            margin-bottom: 1rem;
+            @include mq(pc) {
+              margin-bottom: 2rem;
+            }
+          }
+          &__title {
+            padding-top: 10px;
+            @include mq(pc) {
+              width: 70%;
+            }
+          }
+          .small-list {
+            padding: 1rem;
+            margin: 1rem 0;
+            background: $color-ylw;
+            position: relative;
+            @include mq(pc) {
+              padding: 2rem;
+              margin: 2rem 0;
+            }
+            li {
+              font-weight: 600;
+              &:not(:last-of-type) {
+                margin-bottom: 1rem;
+              }
+              &:not(:first-of-type) {
+                padding-right: 10vw;
+              }
+            }
+            img {
+              position: absolute;
+              bottom: -1rem;
+              right: 0;
+              width: 16vw;
+              @include mq(pc) {
+                width: 150px;
+                bottom: -2rem;
+              }
+            }
+          }
+          &__text {
+            padding: 1rem;
+            @include mq(pc) {
+              padding: 2rem;
+              font-size: 1.8rem;
+            }
+            img {
+              float: right;
+              width: 20vw;
+              margin-bottom: 5px;
+              @include mq(pc) {
+                width: 20%;
+                margin-bottom: 1rem;
+              }
+            }
+          }
+        }
+
+        &-summary, &-bank-cardloan {
+          background: $color-white;
+          &:not(:last-child) {
+            margin-bottom: 1rem;
+            @include mq(pc) {
+              margin-bottom: 2rem;
+            }
+          }
+          &__title {
+            padding: 10px 0 0;
+          }
+          &__text {
+            padding: 0 1rem 1rem;
+            @include mq(pc) {
+              font-size: 1.8rem;
+            }
+            .textbox {
+              @include mq(pc) {
+                padding: 30px;
+              }
+            }
+            img {
+              float: right;
+              width: 20vw;
+              margin-bottom: 5px;
+              @include mq(pc) {
+                width: 20%;
+                margin-bottom: 1rem;
+              }
+            }
+          }
+        }
+
+        &-woman {
+          background: $color-white;
+          border: 1px solid #eee;
+          &:not(:last-child) {
+            margin-bottom: 10px;
+            @include mq(pc) {
+              margin-bottom: 2rem;
+            }
+          }
+          &__title {
+            padding: 10px 10px 0;
+            img {
+              @include mq(pc) {
+                width: 70%;
+              }
+            }
+          }
+          &__text {
+            padding: 0 10px 10px;
+            font-size: .9rem;
+            @include mq(pc) {
+              font-size: 1.8rem;
+            }
+            .textbox {
+              background: #fcf8f0;
+              padding: 10px;
+              @include mq(pc) {
+                padding: 30px;
+              }
+            }
+            img {
+              float: right;
+              width: 20vw;
+              margin-bottom: 5px;
+              @include mq(pc) {
+                width: 20%;
+                margin-bottom: 1rem;
+              }
+            }
+          }
+        }
+
+        &-housewife {
+          background: $color-white;
+          &:not(:last-child) {
+            margin-bottom: 10px;
+          }
+          &__title {
+            background: #fff3f5;
+            display: flex;
+            padding: 10px;
+            gap: 10px;
+            @include mq(pc) {
+              padding: 2rem;
+              gap: 1rem;
+            }
+            img:first-of-type {
+              width: 15%;
+            }
+            img:last-of-type {
+              width: 80%;
+            }
+          }
+          &__text {
+            font-size: .9rem;
+            @include mq(pc) {
+              font-size: 1.8rem;
+            }
+            .textbox {
+              padding: 1rem;
+              @include mq(pc) {
+                padding: 2rem 4rem;
+              }
+              img {
+                float: right;
+                width: 20vw;
+                margin-bottom: 5px;
+                @include mq(pc) {
+                  width: 20%;
+                  margin-bottom: 1rem;
+                }
+              }
+            }
+            .img-box {
+              width: 100%;
+              padding: 10px 0;
+              @include mq(pc) {
+                padding: 1.2rem 0;
+              }
+              img {
+                width: 100%;
+                float: inherit;
+                @include mq(pc) {
+                  display: block;
+                  width: 70%;
+                  margin: auto;
+                }
+              }
+            }
+            .small-list {
+              padding: 0 4px 10px;
+              width: 95%;
+              margin: auto;
+              border: 1px solid #f5f4ef;
+              display: flex;
+              flex-direction: column;
+              gap: 1rem;
+              @include mq(pc) {
+                padding: 2rem;
+                gap: 2rem;
+                margin: 0 auto 4rem;
+              }
+              li {
+                h3 {
+                  width: 100%;
+                  display: flex;
+                  align-items: center;
+                  padding: 10px 0;
+                  gap: 1rem;
+                  border-bottom: 2px dashed pink;
+                  font-size: 1rem;
+                  @include mq(pc) {
+                    font-size: 1.8rem;
+                    gap: 2.5rem;
+                  }
+                  img {
+                    width: 30px;
+                    @include mq(pc) {
+                      width: 70px;
+                    }
+                  }
+                }
+                .textbox {
+                  @include mq(pc) {
+                    padding: 1rem 1rem 0;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        &-bank {
+          background: #f2fbee;
+          &:not(:last-child) {
+            margin-bottom: 1rem;
+          }
+          &__text {
+            padding: 10px 1rem;
+            @include mq(pc) {
+              padding: 2rem;
+            }
+            .textbox {
+              background: $color-white;
+              padding: 10px;
+              font-size: 0.9rem;
+              @include mq(pc) {
+                padding: 30px;
+                font-size: 1.8rem;
+              }
+            }
+            img {
+              width: 20vw;
+              margin-bottom: 5px;
+              float: right;
+              @include mq(pc) {
+                width: 20%;
+                margin-bottom: 1rem;
+              }
+            }
+          }
+        }
+        &-bank-cardloan {
+          @include mq(pc) {
+            padding: 1.4rem 4rem 3rem;
+          }
+          &__text {
+            padding: 10px 10px 0;
+            font-size: .9rem;
+            @include mq(pc) {
+              font-size: 1.8rem;
+              padding: 0;
+            }
+            .textbox {
+              @include mq(pc) {
+                padding: 30px 38px 0px;
+              }
+            }
+            img {
+              width: 17%;
+              margin: 10px;
+              @include mq(pc) {
+                width: 15%;
+                margin: 0;
+                margin-left: 1rem;
+              }
+            }
+          }
+        }
+			}
+		}
+	}
+}

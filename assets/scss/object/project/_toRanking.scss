@@ -1,0 +1,31 @@
+@charset "utf-8";
+
+/*----------------------------------------
+  @use
+----------------------------------------*/
+@use "foundation/" as *;
+
+/*----------------------------------------
+	p-toRanking
+----------------------------------------*/
+.p-toRanking {
+  .content {
+    padding: 10px;
+    position: relative;
+    background: #f5f4ef;
+    @include mq(pc) {
+      padding: 2rem;
+    }
+    img {
+      &:last-child {
+        position: absolute;
+        width: 80px;
+        bottom: 0;
+        right: 0;
+        @include mq(pc) {
+          width: 200px;
+        }
+      }
+    }
+  }
+}

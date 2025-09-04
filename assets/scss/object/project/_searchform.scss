@@ -1,0 +1,616 @@
+@charset "utf-8";
+
+/*----------------------------------------
+  @use
+----------------------------------------*/
+@use "foundation/" as *;
+
+/*----------------------------------------
+	p-searchform
+----------------------------------------*/
+.p-searchform {
+	width: 100%;
+  padding: 10px;
+	@include mq(pc) {
+		padding: 2rem;
+	}
+  &__content {
+    font-size: 4.2vw;
+		@include mq(pc) {
+			font-size: 1.5rem;
+		}
+    .title {
+      padding: 2vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 700;
+      background: $color-gray-d;
+      color: $color-white;
+      line-height: 1.8;
+			@include mq(pc) {
+				padding: 14px 1rem;
+			}
+      img {
+        width: 30px;
+        margin-left: 6px;
+				@include mq(pc) {
+					width: 45px;
+					margin-left: 10px;
+				}
+      }
+    }
+		.content {
+			padding: 8px;
+			background: #f5f4ef;
+			@include mq(pc) {
+				padding: 20px;
+			}
+			form {
+				display: flex;
+				flex-direction: column;
+				gap: 2px;
+				label {
+					cursor: pointer;
+					background: $color-white;
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					position: relative;
+					border-radius: 4px;
+					width: 100%;
+					select {
+						width: 100%;
+						display: block;
+						font-size: 14px;
+						font-weight: 600;
+						padding: 6.5px 14px;
+						position: relative;
+						z-index: 1;
+						@include mq(pc) {
+							font-size: 1.2rem;
+							padding: 15.5px 20px;
+						}
+					}
+					img {
+						position: absolute;
+						width: 20px;
+						top: 50%;
+						transform: translateY(-50%);
+						right: 10px;
+						@include mq(pc) {
+							right: 1rem;
+						}
+					}
+				}
+				.area-kodawari {
+					background: $color-white;
+					&__button {
+						cursor: pointer;
+						font-size: 14px;
+						padding: 1.7vw 10px;
+						font-weight: 600;
+						text-align: center;
+						color: $color-salmon;
+						position: relative;
+						@include mq(pc) {
+							font-size: 1.2rem;
+							padding: 15px 20px;
+						}
+						span {
+							position: absolute;
+							top: 50%;
+							transform: translateY(-50%);
+							right: 4px;
+							width: 25px;
+							height: 25px;
+							background: $color-salmon;
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							gap: 1rem;
+							border-radius: 2px;
+							box-shadow: inset 0 -4px 0px rgba(0, 0, 0, .1);
+							@include mq(pc) {
+								right: 10px;
+								width: 33px;
+								height: 33px;
+							}
+							&:after {
+								content: "";
+								width: 8px;
+								height: 8px;
+								border-top: 2px solid $color-white;
+								border-left: 2px solid $color-white;
+								transform: rotate(-136deg);
+								top: 6px;
+								position: absolute;
+								@include mq(pc) {
+									width: 12px;
+									height: 12px;
+									top: 9px;
+								}
+							}
+							&.reverse {
+								&:after {
+									transform: translateY(4px) rotate(46deg);
+									@include mq(pc) {
+										transform: translateY(2px) rotate(46deg);
+									}
+								}
+							}
+						}
+					}
+					&__item {
+						display: none;
+						padding: 1rem 1.3rem;
+						@include mq(pc) {
+							flex-wrap: wrap;
+							gap: 1rem;
+							padding-bottom: 1.6rem;
+						}
+						&.active {
+							display: block;
+							@include mq(pc) {
+								display: flex;
+							}
+						}
+						label {
+							padding: 2px 6px;
+							display: flex;
+							justify-content: flex-start;
+							gap: 10px;
+							width: 100%;
+							position: relative;
+							font-size: .9rem;
+							@include mq(pc) {
+								width: auto;
+								font-size: 1.15rem;
+							}
+							input[type="checkbox"]:checked + .koda-shape {
+								background: $color-secondary;
+								border: none;
+								&:after {
+									opacity: 1;
+								}
+							}
+							.koda-shape {
+								position: absolute;
+								border: 1px solid hsl(50,23.0769230769%,74.9019607843%);
+								background: #f5f4ef;
+								width: 20px;
+								height: 20px;
+								border-radius: 2px;
+								top: 50%;
+								transform: translateY(-50%);
+								left: 0;
+								@include mq(pc) {
+									width: 30px;
+									height: 30px;
+								}
+								&:after {
+									content: '';
+									position: absolute;
+									width: 13px;
+									height: 8px;
+									left: 3px;
+									top: 5px;
+									border-top: 3px solid $color-white;
+									border-right: 3px solid $color-white;
+									opacity: 0;
+									transform: rotate(135deg);
+									@include mq(pc) {
+										width: 20px;
+										height: 12px;
+										left: 4px;
+										top: 6px;
+										border-top-width: 4px;
+										border-right-width: 4px;
+									}
+								}
+							}
+							.koda-text {
+								padding-left: 24px;
+								@include mq(pc) {
+									padding-left: 40px;
+								}
+							}
+						}
+					}
+				}
+				button[type="submit"] {
+					display: block;
+					position: relative;
+					font-size: 15px;
+					width: 70%;
+					color: $color-white;
+					font-weight: 600;
+					text-align: center;
+					background: $color-secondary;
+					padding: 10px;
+					border-radius: 20px;
+					margin: 8px auto;
+					box-shadow: 0 5px rgb(9.0871559633, 96.7133027523, 132.4128440367);
+					@include mq(pc) {
+						border-radius: 50px;
+						font-size: 1.5rem;
+					}
+					cursor: pointer;
+					.button-icon {
+						position: absolute;
+						width: 20px;
+						height: 20px;
+						left: 20px;
+						top: 50%;
+						transform: translateY(-50%);
+					}
+				}
+			}
+		}
+  }
+}
+
+.p-searchform-p2 {
+  padding: 1rem;
+  background: $color-secondary-ll;
+  @include mq(pc) {
+    padding: 2rem 80px;
+  }
+  &__head {
+    text-align: center;
+    padding: 4px 0;
+    background: $color-secondary;
+    color: $color-white;
+    border-radius: 10px 10px 0 0;
+    position: relative;
+    overflow: hidden;
+    @include mq(pc) {
+      padding: 1rem 0;
+    }
+    &:before, &:after {
+      content: '';
+      position: absolute;
+      background: url(../dist/front/bg-arrow.svg) no-repeat center center;
+      background-blend-mode: lighten;
+	
+    }
+    &:before {
+      width: 20vw;
+      height: 10vw;
+      left: -10px;
+      bottom: -4px;
+			@include mq(pc) {
+				width: 10vw;
+				height: 10vw;
+				left: -10px;
+				bottom: -44px;
+				background-size: 100%;
+			}
+    }
+    &:after {
+      width: 100vw;
+      height: 18vw;
+      right: -151px;
+      top: -15px;
+      transform: rotate(180deg);
+			@include mq(pc) {
+				width: 31vw;
+				height: 10vw;
+				right: -150px;
+				top: -35px;
+				background-size: 40%;
+			}
+    }
+    img {
+			position: relative;
+      width: 60%;
+			@include mq(pc) {
+				width: 80%;
+			}
+    }
+  }
+  &__main {
+    background: $color-white;
+    .input-area {
+      display: none;
+      padding: 10px 1rem;
+			@include mq(pc) {
+				padding: 2rem 4rem;
+			}
+      &.active {
+        display: block;
+      }
+      &__head-back {
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        a {
+          font-size: 10px;
+          font-weight: bold;
+          text-decoration: underline;
+					position: relative;
+					@include mq(pc) {
+						font-size: 14px;
+					}
+					&:before {
+						content: '';
+						position: absolute;
+						width: 6px;
+						height: 6px;
+						background: $color-secondary-l;
+						top: 50%;
+						transform: translateY(-50%);
+					}
+					&.btn-back {
+						padding-left: 10px;
+						color: $color-secondary-l;
+						&::before {
+							left: 0;
+							clip-path: polygon(0 50%, 100% 100%, 100% 0);
+						}
+					}
+					&.btn-next {
+						color: darken($color-salmon, 10%);
+						padding-right: 10px;
+						&::before {
+							right: 0;
+							background: $color-salmon;
+							clip-path: polygon(0 0, 100% 50%, 0 100%);
+						}
+					}
+        }
+      }
+      &__head {
+        p {
+          font-size: 1.1rem;
+          font-weight: 600;
+          text-align: center;
+          margin-bottom: 1rem;
+					small {
+						background: lighten($color-salmon, 10%);
+						padding: 4px 8px;
+						border-radius: 20px;
+						font-size: 3vw;
+						@include mq(pc) {
+							font-size: 12px;
+						}
+					}
+					@include mq(pc) {
+						font-size: 1.5rem;
+					}
+        }
+      }
+      &__body {
+        margin-bottom: 1rem;
+				@include mq(pc) {
+					margin-bottom: 2rem;
+				}
+        ul {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 5px;
+          @include mq(pc) {
+            grid-template-columns: repeat(3, 1fr);
+						gap: 10px;
+          }
+          li {
+            label {
+              display: block;
+              width: 100%;
+              font-size: 3.4vw;
+              padding: 6px;
+              line-height: 1.2;
+              background: #eee;
+              color: $color-gray-d;
+              text-align: center;
+							@include mq(pc) {
+								padding: 10px;
+								font-size: 1rem;
+							}
+            }
+            input[type="radio"], input[type="checkbox"] {
+              display: none;
+            }
+            input[type="radio"]:checked + label, input[type="checkbox"]:checked + label {
+              background: $color-salmon;
+              color: $color-white;
+              font-weight: 700;
+              border: none;
+            }
+          }
+        }
+      }
+      &__foot {
+        text-align: center;
+				padding-bottom: 10px;
+        button {
+          display: block;
+          width: 90%;
+          margin: auto;
+          padding: 8px;
+          border-radius: 40px;
+          background: $color-gray-d;
+          font-weight: bold;
+          color: $color-white;
+          box-shadow: 0 5px 0 darken($color-gray-d, 10%);
+					@include mq(pc) {
+						width: 80%;
+						padding: 1rem;
+						border-radius: 50px;
+						font-size: 1.5rem;
+					}
+          span {
+            position: relative;
+            padding-right: 20px;
+            &:after {
+              content: '';
+              position: absolute;
+              width: 20px;
+              height: 20px;
+              background: url(../dist/front/icon-searchform-p2_submit.svg) no-repeat center center;
+              background-size: contain;
+              right: -10px;
+              top: 50%;
+              transform: translateY(-50%);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+}
+
+
+.loading-box {
+  display: none;
+  width: 100vw;
+  height: 100svh;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+	&__area {
+		width: 90%;
+		margin: auto;
+		max-width: 700px;
+		background: $color-white;
+		padding: 2rem 1rem;
+		border-radius: 10px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+		@include mq(pc) {
+			padding: 2rem;
+		}
+		&__icon {
+			.loader {
+				width: 50px;
+				aspect-ratio: 1;
+				border-radius: 50%;
+				background: 
+				radial-gradient(farthest-side,#ffa516 94%,#0000) top/8px 8px no-repeat,
+				conic-gradient(#0000 30%,#ffa516);
+				-webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 8px),#000 0);
+				animation: l13 1s infinite linear;
+			}
+			@keyframes l13{ 
+				100%{transform: rotate(1turn)}
+			}
+		}
+		&__title {
+			h2 {
+				font-size: 5vw;
+				font-weight: 700;
+				text-align: center;
+				@include mq(pc) {
+					font-size: 1.4rem;
+				}
+			}
+		}
+		&__choice {
+			width: 100%;
+			padding: 1rem;
+			background: $color-base-gray;
+			@include mq(pc) {
+				padding: 2rem;
+			}
+			ul {
+				margin: auto;
+				display: flex;
+				flex-direction: column;
+				gap: 4px;
+				width: 80%;
+				li {
+					width: 100%;
+					position: relative;
+					font-size: 3.4vw;
+					font-weight: 600;
+					color: $color-gray-d;
+					display: flex;
+					flex-wrap: wrap;
+					gap: 10px;
+					visibility: visible;
+					padding-left: 22px;
+					@include mq(pc) {
+						font-size: 1.2rem;
+						padding-left: 30px;
+					}
+					span {
+						width: 18px;
+						height: 18px;
+						position: absolute;
+						top: 0;
+						left: 0;
+						background: #FCCB83;
+						@include mq(pc) {
+							width: 24px;
+							height: 24px;
+						}
+						&:before {
+							content: '';
+							position: absolute;
+							width: 40%;
+							height: 60%;
+							border-right: 2px solid $color-red;
+							border-bottom: 2px solid $color-red;
+							top: 45%;
+							left: 50%;
+							transform: translate(-50%, -50%) rotate(45deg);
+						}
+					}
+				}
+			}
+		}
+		.progress-bar {
+			position: relative;
+			width: 100%;
+			background-color: rgba(255, 255, 255, 0.3);
+			border-radius: 4px;
+			margin: 20px 0;
+			overflow: hidden;
+			
+			&__fill {
+				height: 8px;
+				background: linear-gradient(90deg, $color-red, $color-salmon);
+				border-radius: 4px;
+				transition: width 0.05s ease;
+				position: relative;
+				&::after {
+					content: '';
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+					animation: shimmer 2s infinite;
+				}
+			}
+			
+			&__text {
+				font-size: 14px;
+				text-align: center;
+				font-weight: bold;
+			}
+		}
+
+		@keyframes shimmer {
+			0% {
+				transform: translateX(-100%);
+			}
+			100% {
+				transform: translateX(100%);
+			}
+		}
+	}
+	&.active {
+		display: flex;
+	}
+}

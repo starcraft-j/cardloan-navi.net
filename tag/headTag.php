@@ -102,5 +102,67 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'GTM-NM7NX2D');
+  gtag('config', 'GTM-PV539T65');
+</script>
+
+
+<script>
+(function() {
+  try {
+    const currentHost = window.location.hostname;
+    const ref = document.referrer;
+    let isExternal = false;
+
+    // リファラーが空でも保存（iOS対策・外部流入想定）
+    if (!ref) {
+      isExternal = true;
+    } else {
+      try {
+        const refHost = new URL(ref).hostname;
+        if (refHost !== currentHost) {
+          isExternal = true;  // 外部サイトからの流入
+        }
+      } catch (e) {
+        // 不正フォーマットの場合も外部扱い
+        isExternal = true;
+      }
+    }
+
+    if (isExternal) {
+      const url = window.location.href;
+      const ua = navigator.userAgent.toLowerCase();
+      // デバイス判定（PC=1, SP=2, タブレット=3）
+      let device = 1;
+      if (/iphone|android.*mobile/.test(ua)) {
+        device = 2;
+      } else if (/ipad|android(?!.*mobile)/.test(ua)) {
+        device = 3;
+      }
+
+      // OS判定（Windows=1, Mac=2, iOS=3, Android=4, Other=9）
+      let os = 9;
+      if (/iphone|ipad|ipod/.test(ua)) {
+        os = 3; // iOS
+      } else if (/android/.test(ua)) {
+        os = 4; // Android
+      } else if (/windows nt/.test(ua)) {
+        os = 1; // Windows
+      } else if (/macintosh|mac os x/.test(ua)) {
+        os = 2; // Mac
+      }
+
+      const data = {
+        time: Math.floor(Date.now() / 1000),
+        device: device,
+        os: os,
+        url: url,
+        ref: ref || ""
+      };
+
+      // LocalStorage に JSON文字列で保存
+      localStorage.setItem("kbp2", JSON.stringify(data));
+    }
+  } catch (err) {
+  }
+})();
 </script>

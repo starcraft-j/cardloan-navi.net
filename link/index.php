@@ -1,14 +1,5 @@
 <?php 
-  /**
-   * ❗️ @require のパス記載注意（サブフォルダの有無）
-   * @slug aタグに指定したパラメータの投稿のスラッグを取得
-   * ❗️ @post スラッグからIDを取得（３つ目の引数には投稿タイプを入れる）
-   * @postID IDを取得
-   * @name タイトルを取得
-   * @img アイキャッチ画像を取得
-   * @catch キャッチコピーを取得
-   * @link アフィリリンクを取得
-   */
+
   require ($_SERVER['DOCUMENT_ROOT'].'/wp-load.php'); 
   $slug = $_GET['item'];
   $post =get_page_by_path($slug , OBJECT , 'company');

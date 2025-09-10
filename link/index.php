@@ -96,28 +96,54 @@
 
 
 
+	<?php if($link) : ?>
+	<script>
+		function acsRedirect() {
+			var url = '<?= $link; ?>';
+			var params = location.search.substring(1);
+			var delay_ms = 1000;
+			
+			// kbp2とkbp3のパラメータを追加
+			let kbp2 = localStorage.getItem("kbp2") || "";
+			let kbp3 = JSON.stringify({
+				time: Math.floor(Date.now() / 1000),
+				url: window.location.href,
+				ref: document.referrer || ""
+			});
+			
+			// 既存のパラメータとkbp2/kbp3を統合
+			const urlParams = new URLSearchParams();
+			
+			// 既存のパラメータを追加
+			if (params) {
+				const existingParams = new URLSearchParams(params);
+				for (let [key, value] of existingParams) {
+					urlParams.append(key, value);
+				}
+			}
+			
+			// kbp2とkbp3を追加
+			urlParams.append('kbp2', kbp2);
+			urlParams.append('kbp3', kbp3);
+			
+			// 最終URLを構築
+			if (urlParams.toString()) {
+				var separator = (url.indexOf('?') === -1) ? '?' : '&';
+				url += separator + urlParams.toString();
+			}
+			
+			setTimeout(function() {
+				location.href = url
+			}, delay_ms);
+		}
 
-
-  <script>
-    // function acsRedirect() {
-    //   var url = '<?= $link; ?>';
-    //   var params = location.search.substring(1);
-    //   var delay_ms = 1000;
-    //   if (params) {
-    //     var separator = (url.indexOf('?') === -1) ? '?' : '&';
-    //     url += separator + params;
-    //   }
-    //   setTimeout(function() {
-    //     location.href = url
-    //   }, delay_ms);
-    // }
-
-    // if (document.readyState === "loading") {
-    //   document.addEventListener("DOMContentLoaded", acsRedirect);
-    // } else {
-    //   acsRedirect();
-    // }
-  </script>
+		if (document.readyState === "loading") {
+			document.addEventListener("DOMContentLoaded", acsRedirect);
+		} else {
+			acsRedirect();
+		}
+	</script>
+	<?php endif; ?>
 
   <script src="timer.js?v=<?=time()?>"></script>
 

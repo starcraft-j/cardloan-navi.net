@@ -119,19 +119,18 @@
 					<td style="background-image:url(<?= esc_url( get_template_directory_uri() ); ?>/images/icons/maru-0<?= $limit <= 3 ? '1' : '2'; ?>.svg);">
             <span class="gendo" style="display:none"><?php echo $limit; ?></span>
 						<?php 
-              if(!empty(get_field('rank-table_limit-text'))) {
-                echo get_field('rank-table_limit-text');
+              if($limitText) {
+                echo $limitText;
               } else {
                 limit($limit); 
               }
-							/** 借入限度額注釈分岐 */
-							if ($post->post_title == 'アイフル') {
-								echo '<small class="small">※</small>';
-							}
-							if ($post->post_title == '東京スター銀行　おまとめローン') {
-								echo '<small class="small">※2</small>';
-							}
-						?>
+              if($limitSup) {
+                echo '<small class="small">'.$limitSup.'</small>';
+              }
+              if ($post->post_title == '東京スター銀行　おまとめローン') {
+                echo '<small class="small">※2</small>';
+              }
+            ?>
 					</td>
 
 				</tr>
@@ -161,6 +160,7 @@
               } else {
                 echo $examSpeed[get_field("rank-table_exam-speed_2024")];
               }
+              if($examSpeedSup ) { echo '<small class="small">'.$examSpeedSup.'</small>'; }
 
               /** 注釈分岐 */
               if($hokuyoLoan) {
@@ -169,7 +169,6 @@
 							// 審査時間の注釈を表示
 							switch ($post->post_title) {
 								// ※を表示する商品
-								case 'アイフル':
 								case 'プロミス':
 								case 'プロミス レディース':
 									echo '<small class="small">※</small>';
@@ -208,6 +207,7 @@
                 echo $examSpeed[get_field("rank-table_loan-speed_2024")];
               }
 
+              if($loanSpeedSup ) { echo '<small class="small">'.$loanSpeedSup.'</small>'; }
 
               /**　注釈分岐 */
               if($hokuyoLoan) {
@@ -216,7 +216,6 @@
 							// 融資時間の注釈を表示
 							switch ($post->post_title) {
 							// ※を表示する商品
-							case 'アイフル':
 							case 'プロミス':
 							case 'プロミス レディース':
 								echo '<small class="small">※</small>';
@@ -255,7 +254,7 @@
 								echo "-";
 							}
 						?>
-						<?= $post->ID == 127 ? '<small class="small">※</small>' : '' ?>
+            <?php if($convSup) { echo '<small class="small">'.$convSup.'</small>'; } ?>
 					</td>
 
 					<th>収入証明書</th>

@@ -34,10 +34,8 @@ const ftpUploadFilesInc = [
 const ftpUploadFilesTag = [
   './tag/*.php',
 ]
+
 const ftpUploadFilesParts = [
-  './inc/parts/*.php',
-]
-const ftpUploadFilesPartsNew = [
   './parts/*.php',
 ]
 const ftpUploadFilesJs = [
@@ -53,14 +51,13 @@ const ftpUploadFilesNewFront = [
   './assets/dist/front/*.webp',
 ]
 
-
 const domain = 'cardloan-navi.net/public_html/'
 const remoteDistDirLink = domain + 'link/'
 const remoteDistDir = domain + 'wp-content/themes/cardloan/'
-const remoteDistDirInc = remoteDistDir + '/inc'
-const remoteDistDirTag = remoteDistDir + '/tag'
-const remoteDistDirParts = remoteDistDir + '/parts'
-const remoteDistDirIncParts = remoteDistDirInc + '/parts'
+const remoteDistDirInc = remoteDistDir + '/inc/'
+const remoteDistDirTag = remoteDistDir + '/tag/'
+const remoteDistDirParts = remoteDistDir + '/parts/'
+const remoteDistDirIncParts = remoteDistDirInc + '/parts/'
 const remoteDistDirCss = remoteDistDir + '/assets/css/'
 const remoteDistDirJs = remoteDistDir + '/assets/js/'
 const remoteDistDirCommon = remoteDistDir + '/assets/dist/_common/'
@@ -91,11 +88,7 @@ const vinylFtpParts = () => {
     .pipe(connect.newerOrDifferentSize(remoteDistDirParts))
     .pipe(connect.dest(remoteDistDirParts))
 }
-const vinylFtpIncParts = () => {
-  return src(ftpUploadFilesPartsNew, { buffer: false })
-    .pipe(connect.newerOrDifferentSize(remoteDistDirIncParts))
-    .pipe(connect.dest(remoteDistDirIncParts))
-}
+
 const vinylFtpCss = () => {
   return src(ftpUploadFilesCss, { buffer: false })
   .pipe(connect.newerOrDifferentSize(remoteDistDirCss))
@@ -168,7 +161,6 @@ const watchFile = () => {
   watch(ftpUploadFilesInc, vinylFtpInc);
   watch(ftpUploadFilesTag, vinylFtpTag);
   watch(ftpUploadFilesParts, vinylFtpParts);
-  watch(ftpUploadFilesPartsNew, vinylFtpIncParts);
   watch(ftpUploadFilesJs, vinylFtpJs);
   watch(ftpUploadFilesCss, vinylFtpCss);
   watch(ftpUploadFilesNewCommon, vinylFtpCommon);

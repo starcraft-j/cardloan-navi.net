@@ -25,6 +25,14 @@ $InterestFree = get_field('rank-table_Interest-free'); //無利息期間
 $conv = get_field('rank-table_conv'); //利用可能コンビニ
 $syoumeisyo = get_field('rank-table_syoumeisyo'); //収入証明書
 
+
+$limitText = get_field('rank-table_limit_text');
+$limitSup = get_field('rank-table_limit_sup');
+$examSpeedSup = get_field('rank-table_exam-speed_sup');
+$loanSpeedSup = get_field('rank-table_loan-speed_sup');
+$convSup = get_field('rank-table_conv_sup');
+
+
 $loanSpeedFront = get_field('rank-table_loan-speed-front'); //融資スピード（表示） 20231012
 $xaminationSpeedFront = get_field('rank-table_examination-speed-front'); //審査スピード（表示） 20231012
 
@@ -36,5 +44,3 @@ $tagArray = array('即日融資', 'バレずらい', 'WEB完結', '免許証でO
 $review1 = get_field('review1');
 $review2 = get_field('review2');
 $reviews = array($review1, $review2);
-
-

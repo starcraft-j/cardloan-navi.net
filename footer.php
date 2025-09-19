@@ -16,7 +16,7 @@
         <div class="footer-main l-footer__main">
 
           <?php 
-            $footText = '※カードローンニュースでは、アフィリエイトプログラムを利用し、アコム社等から委託を受け広告収益を得て運用しております。';
+            $footText = '※カードローンナビでは、アフィリエイトプログラムを利用し、アコム社等から委託を受け広告収益を得て運用しております。';
             $footLinks = [
               'info' => '運営者情報',
               'info#privacy' => 'プライバシーポリシー',
@@ -46,7 +46,7 @@
         </div>
 
 
-        <div id="foot-copy" class="l-footer__copy">@CopyRight <img src="<?= esc_url( get_template_directory_uri() ); ?>/images/logo-new-v2.svg" alt="" width="100" height="50" loading="lazy" /></div>
+        <div id="foot-copy" class="l-footer__copy">@CopyRight <img src="https://cardloan-navi.net/wp-content/uploads/2025/08/logo-new-rs-v1.svg" alt="" width="100" height="50" loading="lazy" /></div>
 
         
         <div class="footer-pr l-footer__pr u-device-sp">

@@ -1,6 +1,4 @@
-  <?php
-    $hokuyoLoan = $post->ID === 1249;
-  ?>
+
 
 
 	<li class="p-ranking-item rank-item rank<?= $itemCount; ?> result-item">
@@ -96,20 +94,7 @@
 								}
 							} 
 
-							/** 注釈分岐 */
-							if($post->ID == 472) {
-								// プロミス
-								echo "※1";
-							} elseif($post->ID == 129 || $post->post_title == '住信SBIネット銀行 カードローン') {
-								// 住信SBIネット銀行
-								echo "※";
-							} elseif($post->ID == 2605) {
-								// 誰でもコース
-								echo "※誰でもコース";
-							} elseif($post->post_title == '東京スター銀行　おまとめローン') {
-								// 東京スター銀行
-								echo "※4";
-							}
+							if($interestSup) { echo '<small class="small">'.$interestSup.'</small>'; }
 						?>
             <span class="nenritsu" style="display:none"><?php echo $interestRow; ?></span>
 					</td>
@@ -126,9 +111,6 @@
               }
               if($limitSup) {
                 echo '<small class="small">'.$limitSup.'</small>';
-              }
-              if ($post->post_title == '東京スター銀行　おまとめローン') {
-                echo '<small class="small">※2</small>';
               }
             ?>
 					</td>
@@ -161,28 +143,7 @@
                 echo $examSpeed[get_field("rank-table_exam-speed_2024")];
               }
               if($examSpeedSup ) { echo '<small class="small">'.$examSpeedSup.'</small>'; }
-
-              /** 注釈分岐 */
-              if($hokuyoLoan) {
-                echo '<small class="small">※1</small>';
-              } 
-							// 審査時間の注釈を表示
-							switch ($post->post_title) {
-								// ※を表示する商品
-								case 'プロミス':
-								case 'プロミス レディース':
-									echo '<small class="small">※</small>';
-									break;
-								// ※1を表示する商品
-								case 'アコム':
-								case 'MONEY CARD GOLD':
-									echo '<small class="small">※1</small>';
-									break;
-								// ※2を表示する商品
-								case 'dスマホローン':
-									echo '<small class="small">※2</small>';
-									break;
-								}
+							
 						?>
 					</td>
 
@@ -190,7 +151,7 @@
 
 					<th>融資時間</th>
 					<?php
-						$fieldObj = get_field_object("rank-table_exam-speed_2024");
+						$fieldObj = get_field_object("rank-table_loan-speed_2024");
 						$examSpeed = $fieldObj['choices'];
 					?>
 
@@ -208,31 +169,7 @@
               }
 
               if($loanSpeedSup ) { echo '<small class="small">'.$loanSpeedSup.'</small>'; }
-
-              /**　注釈分岐 */
-              if($hokuyoLoan) {
-                echo '<small class="small">※1</small>';
-              } 
-							// 融資時間の注釈を表示
-							switch ($post->post_title) {
-							// ※を表示する商品
-							case 'プロミス':
-							case 'プロミス レディース':
-								echo '<small class="small">※</small>';
-								break;
-							// ※1を表示する商品
-							case 'アコム':
-								echo '<small class="small">※1</small>';
-								break;
-							// ※2を表示する商品
-							case 'MONEY CARD GOLD':
-								echo '<small class="small">※2</small>';
-								break;
-							// ※3を表示する商品
-							case 'dスマホローン':
-								echo '<small class="small">※3</small>';
-								break;
-							}
+							
 						?>
 
 					</td>
@@ -261,23 +198,7 @@
 					
 					<td style="background-image:url(<?= esc_url( get_template_directory_uri() ); ?>/images/icons/maru-0<?= $syoumeisyo == '不要' ? '1' : ($syoumeisyo == '必要' ? '3' : '2'); ?>.svg);">
 					<?= $syoumeisyo; ?>
-
-						<?php
-							// 収入証明書の注釈を表示
-							switch ($post->post_title) {
-								case 'プロミス':
-									echo '<small class="small">※4</small>';
-									break;
-								case 'アコム':
-									echo '<small class="small">※2</small>';
-									break;
-								case 'セブン銀行カードローン':
-									echo '<small class="small">※</small>';
-									break;
-							}
-						?>
-
-            <?php if($hokuyoLoan) { echo '<small class="small">※2'; } ?> 
+          <?php if($syoumeisyoSup) { echo '<small class="small">'.$syoumeisyoSup.'</small>'; } ?>
 
 					</td>
 

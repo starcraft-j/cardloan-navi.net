@@ -26,11 +26,13 @@ $conv = get_field('rank-table_conv'); //利用可能コンビニ
 $syoumeisyo = get_field('rank-table_syoumeisyo'); //収入証明書
 
 
+$interestSup = get_field('rank-table_interest_sup');
 $limitText = get_field('rank-table_limit_text');
 $limitSup = get_field('rank-table_limit_sup');
 $examSpeedSup = get_field('rank-table_exam-speed_sup');
 $loanSpeedSup = get_field('rank-table_loan-speed_sup');
 $convSup = get_field('rank-table_conv_sup');
+$syoumeisyoSup = get_field('rank-table_syoumeisyo_sup');
 
 
 $loanSpeedFront = get_field('rank-table_loan-speed-front'); //融資スピード（表示） 20231012

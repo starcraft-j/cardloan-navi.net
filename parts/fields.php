@@ -26,7 +26,23 @@ $conv = get_field('rank-table_conv'); //利用可能コンビニ
 $syoumeisyo = get_field('rank-table_syoumeisyo'); //収入証明書
 
 
+
+$interestText = get_field('rank-table_interest_text');
 $interestSup = get_field('rank-table_interest_sup');
+
+
+// 比較表のみ使用
+$interestFreeSup = get_field('rank-table_Interest-free_sup');
+$interestFreeText = get_field('rank-table_interest-free_text');
+
+$examSpeedSupHikaku = get_field('rank-table_exam-speed_sup_hikaku');
+$loanSpeedSupHikaku = get_field('rank-table_loan-speed_sup_hikaku');
+
+
+$hikakuSup = get_field('sup-hikaku', 4737);
+
+
+//共通スペック用
 $limitText = get_field('rank-table_limit_text');
 $limitSup = get_field('rank-table_limit_sup');
 $examSpeedSup = get_field('rank-table_exam-speed_sup');

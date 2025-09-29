@@ -7,7 +7,7 @@
 			if (!scriptAdded) {
 				console.log('[GTM] 発火: 3秒経過で読み込み開始');
 				var newScript = document.createElement('script');
-				newScript.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-PV539T65';
+				newScript.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-NDGX9N42';
 				newScript.async = true;
 				
 				newScript.addEventListener('load', function() {

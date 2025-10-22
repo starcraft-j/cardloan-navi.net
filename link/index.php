@@ -10,6 +10,22 @@
   $catch = get_field('catch', $postID);
   $sup = get_field('sup-button', $postID);
 
+  $queryString = $_SERVER['QUERY_STRING'];
+  if (!empty($queryString)) {
+    parse_str($queryString, $params);
+    unset($params['item']);
+    
+    if (!empty($params)) {
+      $additionalParams = http_build_query($params);
+      $separator = (strpos($link, '?') !== false) ? '&' : '?';
+      $linkWithParams = $link . $separator . $additionalParams;
+    } else {
+      $linkWithParams = $link;
+    }
+  } else {
+    $linkWithParams = $link;
+  }
+
   include 'inc/headTag.php';
 ?>
 <!DOCTYPE html>
@@ -67,7 +83,7 @@
           <?php endif; ?>
             
           <dd class="p-redirect-ctt__text">
-            <p>ページが移動しない場合は<br><a href="<?= $link; ?>">こちらをクリック</a>してください。</p>
+            <p>ページが移動しない場合は<br><a href="<?= $linkWithParams; ?>">こちらをクリック</a>してください。</p>
           </dd>
 
           <?php if(isset($sup) && !empty($sup)) : ?>

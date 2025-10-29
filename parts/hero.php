@@ -49,8 +49,8 @@
         <?php elseif(is_page('bank')) : ?>
 
           <picture>
-            <source srcset="<?= esc_url( get_template_directory_uri() ); ?>/dist/images/fv-bank-sp.webp" media="(max-width: 767px)" width="100" height="100" fetchpriority="high">
-            <img src="<?= esc_url( get_template_directory_uri() ); ?>/dist/images/fv-bank-pc.webp" alt="" width="100" height="100" fetchpriority="high">
+            <source srcset="<?= esc_url( get_template_directory_uri() ); ?>/assets/dist/front/fv-bank-sp_v2.webp" media="(max-width: 767px)" width="100" height="100" fetchpriority="high">
+            <img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/dist/front/fv-bank-pc_v2.webp" alt="" width="100" height="100" fetchpriority="high">
           </picture>
 
           <span class="fv-date <?='-'.$slug?>"><?=wp_date('Y').'年' ?></span>

@@ -69,7 +69,7 @@
 
         $information_array= [
           1 => [
-            'text' => 'カードローンには「銀行カードローン」と「消費者金融」があります。<br>消費者金融と比較すると<span class="red bold">銀行カードローンは、低金利で借入ができ、利息の負担が少ないです！</span><br>長期の借入を検討している方に向いています。',
+            'text' => 'カードローンには「銀行カードローン」と「消費者金融」があります。<br>消費者金融と比較すると<span class="red bold">銀行カードローンは、上限金利が低めで、利息の負担が少ないです！</span><br>長期の借入を検討している方に向いています。',
           ],
           2 => [
             'text' => '利用するカードローンによって、借入可能な限度額は異なります。<span class="red bold">銀行カードローンなら、最大800万円以上の借入ができる可能性もあります！</span><br>まとまった金額を借入したいと考えている方には、銀行カードローンの利用が便利でオススメです！',
@@ -81,7 +81,7 @@
       ?>
 
       <hgroup class="information-content__head information-content__head-<?=$slug?>">
-        <img src="<?= esc_url( get_template_directory_uri() ); ?>/dist/images/bank/bank-point-title.svg" alt="" width="100" height="100" loading="lazy">
+        <img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/dist/front/bank/bank-point-title.svg" alt="" width="100" height="100" loading="lazy">
       </hgroup>
       
 
@@ -94,8 +94,8 @@
           <h3 class="point-item__title point-item-<?=$slug?>__title">
 
             <picture>
-              <source srcset="<?= esc_url( get_template_directory_uri() ); ?>/dist/images/bank/point-midashi<?=$key?>-pc.svg" media="(max-width: 767px)" width="100" height="100" loading="lazy">
-              <img src="<?= esc_url( get_template_directory_uri() ); ?>/dist/images/bank/point-midashi<?=$key?>-pc.svg" alt="" width="100" height="100" loading="lazy">
+              <source srcset="<?= esc_url( get_template_directory_uri() ); ?>/assets/dist/front/bank/point-midashi<?=$key?>-sp.svg" media="(max-width: 767px)" width="100" height="100" loading="lazy">
+              <img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/dist/front/bank/point-midashi<?=$key?>-pc.svg" alt="" width="100" height="100" loading="lazy">
             </picture>
 
           </h3>
@@ -505,7 +505,7 @@
       <?php 
         $information_array= [
           1 => [
-            'text' => 'カードローンには「銀行カードローン」と「消費者金融」があります。<br>消費者金融と比較すると<span class="red bold">銀行カードローンは、低金利で借入ができ、利息の負担が少ないです！</span><br>長期の借入を検討している方に向いています。',
+            'text' => 'カードローンには「銀行カードローン」と「消費者金融」があります。<br>消費者金融と比較すると<span class="red bold">銀行カードローンは、上限金利が低めで、利息の負担が少ないです！</span><br>長期の借入を検討している方に向いています。',
           ],
           2 => [
             'text' => '利用するカードローンによって、借入可能な限度額は異なります。<span class="red bold">銀行カードローンなら、最大800万円以上の借入ができる可能性もあります！</span><br>まとまった金額を借入したいと考えている方には、銀行カードローンの利用が便利でオススメです！',

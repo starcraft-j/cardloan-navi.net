@@ -25,6 +25,7 @@ $expires = date('D, d M Y H:i:s T', strtotime('+1 hour'));
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
   <meta name="referrer" content="no-referrer-when-downgrade" />
   <title><?php bloginfo('name'); ?></title>
+  <meta name="keywords" content="カードローン・お金借りる・消費者金融・キャッシング・借り入れ・今すぐお金が必要・他社借入・ローン・借りやすい・即日融資・金融期間・銀行・審査・金利">
   <meta name="description" content="<?php bloginfo('description'); ?>">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:title" content="<?php bloginfo('name'); ?>">

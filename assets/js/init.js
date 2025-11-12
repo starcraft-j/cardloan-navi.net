@@ -209,3 +209,14 @@ function countdown() {
 		});
 	}
 }
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const altText = 'カードローン・お金借りる・消費者金融・キャッシング・借り入れ・今すぐお金が必要・他社借入・ローン・借りやすい・即日融資・金融期間・銀行・審査・金利';
+
+  document.querySelectorAll('img').forEach((img) => {
+    if (!img.closest('header') && !img.closest('footer')) {
+      img.setAttribute('alt', altText);
+    }
+  });
+});

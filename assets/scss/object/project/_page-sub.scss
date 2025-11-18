@@ -203,6 +203,12 @@
         padding: 10px 10px 10px 30px;
       }
     }
+    ol {
+      &.number {
+        list-style: decimal;
+        padding-left: 20px;
+      }
+    }
   }
   &.-archive {
     padding: 1rem;

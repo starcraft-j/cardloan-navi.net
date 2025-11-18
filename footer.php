@@ -21,6 +21,7 @@
               'info' => '運営者情報',
               'info#privacy' => 'プライバシーポリシー',
               'survey' => '調査概要',
+              'terms-use' => '利用規約',
               'category/column/' => 'コラム一覧'
             ];
           ?>

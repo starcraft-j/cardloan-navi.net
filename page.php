@@ -2,7 +2,7 @@
 
 
 
-  <?php if(is_page('info') || is_page('survey')) : ?>
+  <?php if(is_page('info') || is_page('survey') || is_page('terms-use')) : ?>
 
 
     <?php include "parts/page-sub.php"; ?>

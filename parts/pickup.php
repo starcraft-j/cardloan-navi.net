@@ -262,7 +262,7 @@
 									?>
 								</td>
 
-								<th>借入限度額</th>
+								<th><?= $post->ID == 2605 ? 'ご利用限度額' : '借入限度額' ?></th>
 
 								<td style="background-image:url(<?php bloginfo('template_url'); ?>/images/icons/maru-0<?= $limit <= 3 ? '1' : '2'; ?>.svg);">
 									<?php 

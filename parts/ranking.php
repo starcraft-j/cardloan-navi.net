@@ -108,6 +108,18 @@
 
 
 
+          <?php 
+
+            if(isset($_GET['bank']) || is_page('bank') || is_page('bank-cardloan') ) {
+              if(!empty(get_field('catch-bank'))) {
+                $catch = get_field('catch-bank');
+                $catchSp = get_field('catch-bank-sp');
+              } else {
+                $catch = $catch;
+                $catchSp = $catchSp;
+              }
+            }
+          ?>
 					<div class="item-head__catch">
 						<p class="u-device-pc"><?= $catch; ?></p>
 						<p class="u-device-sp"><?= !empty($catchSp) ? $catchSp : $catch; ?></p>

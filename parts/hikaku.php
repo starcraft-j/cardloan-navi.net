@@ -74,10 +74,13 @@
                 /** 審査時間 */
                 $fieldObj = get_field_object("rank-table_exam-speed_2024");
                 $examSpeed = $fieldObj['choices'];
+                $promise = $post->ID == 119;
               ?>
 
               <td <?php tableMaru(get_field("rank-table_exam-speed_2024")) ?>>
+                <?= $promise ? '<span class="red">' : '' ?> 
                 <?=$examSpeed[get_field("rank-table_exam-speed_2024")]?>
+                <?= $promise ? '</span>' : '' ?> 
                 <?= $examSpeedSupHikaku ? '<small class="small">'.$examSpeedSupHikaku.'</small>' : '<small class="small">'.$examSpeedSup.'</small>'; ?>
               </td>
 
@@ -87,7 +90,9 @@
                 $examSpeed = $fieldObj['choices'];
               ?>
               <td <?php tableMaru(get_field("rank-table_loan-speed_2024")) ?>>
+                <?= $promise ? '<span class="red">' : '' ?> 
                 <?=$examSpeed[get_field("rank-table_loan-speed_2024")]?>
+                <?= $promise ? '</span>' : '' ?> 
                 <?= $loanSpeedSupHikaku ? '<small class="small">'.$loanSpeedSupHikaku.'</small>' : '<small class="small">'.$loanSpeedSup.'</small>'; ?>
               </td>
 

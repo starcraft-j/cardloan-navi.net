@@ -139,6 +139,7 @@
 					<?php
 						$fieldObj = get_field_object ("rank-table_exam-speed_2024");
 						$examSpeed = $fieldObj['choices'];
+            $promise = $post->ID == 119;
 					?>
 
 					<td <?php tableMaru(get_field("rank-table_exam-speed_2024")) ?>>
@@ -148,11 +149,13 @@
             </span>
 
             <?php 
+              echo $promise ? '<span class="red">' : '';
               if(!empty(get_field('rank-table_exam-speed_text'))) {
                 echo get_field('rank-table_exam-speed_text');
               } else {
                 echo $examSpeed[get_field("rank-table_exam-speed_2024")];
               }
+              echo $promise ? '</span>' : '';
               if($examSpeedSup ) { echo '<small class="small">'.$examSpeedSup.'</small>'; }
 							
 						?>
@@ -173,12 +176,13 @@
             </span>
 					
 						<?php
+              echo $promise ? '<span class="red">' : '';
               if(!empty(get_field('rank-table_loan-speed_text'))) {
                 echo get_field('rank-table_loan-speed_text');
               } else {
                 echo $examSpeed[get_field("rank-table_loan-speed_2024")];
               }
-
+              echo $promise ? '</span>' : '';
               if($loanSpeedSup ) { echo '<small class="small">'.$loanSpeedSup.'</small>'; }
 							
 						?>

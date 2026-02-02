@@ -262,6 +262,16 @@ add_filter('acf/format_value', 'enable_shortcodes_in_acf', 10, 3);
 
 
 
+// 1週間前の日付を取得
+function get_one_week_ago_date() {
+    $time_one_week_ago = strtotime('-1 week');
+    return '<span style="color: #1b1c1a;">※'.wp_date('Y年n月j日', $time_one_week_ago).'現在</span>';
+}
+// ショートコード [one_week_ago] を登録
+add_shortcode('one_week_ago', 'get_one_week_ago_date');
+
+
+
 
 // Renew 2025 04 08 ================================
 

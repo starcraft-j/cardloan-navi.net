@@ -199,10 +199,10 @@ function get_popup_link($is_table_btn = false, $is_no_sub_btn = false) {
       'class' => 'star-popup',
       'attributes' => ' v-on:click="clickedStarPopup"'  // @click을 v-on:click으로 변경
     ],
-    122 => [
-      'class' => 'lake-popup',
-      'attributes' => ' v-on:click="clickedLakePopup"' 
-    ]
+    // 122 => [
+    //   'class' => 'lake-popup',
+    //   'attributes' => ' v-on:click="clickedLakePopup"' 
+    // ]
   ];
   
 

@@ -162,7 +162,13 @@ function get_link_param($args = []) {
   global $post;
   $post_id = isset($args['post_id']) ? $args['post_id'] : get_the_ID();
   $post_name = get_post_field('post_name', $post_id);
-  $url = home_url("/link?item={$post_name}");
+  $params = [
+    'item' => $post_name,
+  ];
+  if (is_page('bank') || is_page('bank-cardloan') || (isset($_GET['bank']) )) {
+    $params['pg'] = 'bank';
+  }
+  $url = home_url('/link?' . http_build_query($params));
   
   return $url;
 }

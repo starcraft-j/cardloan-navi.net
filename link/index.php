@@ -10,6 +10,10 @@
   $catch = get_field('catch', $postID);
   $sup = get_field('sup-button', $postID);
 
+  if(isset($_GET['pg'])) {
+    $link = !empty(get_field('url-'.$_GET['pg'], $postID)) ? get_field('url-'.$_GET['pg'], $postID) : $link;
+  }
+
   $queryString = $_SERVER['QUERY_STRING'];
   if (!empty($queryString)) {
     parse_str($queryString, $params);

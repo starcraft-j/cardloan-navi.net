@@ -306,9 +306,15 @@ function get_rank_obj() {
   $slug = $post->post_name;
   $rank_obj = get_field("ranking", $post->ID);
   $rank_obj2 = get_field("ranking2", $post->ID);
+  
   if(!is_front_page()) {
     $rank_obj = get_field("ranking", $post->ID);
     $rank_obj2 = get_field("ranking-".$slug.'2', $post->ID);
+  } else {
+    if(isset($_GET['test'])) {
+      $rank_obj = get_field("ranking_test", $post->ID);
+      // $rank_obj2 = get_field("ranking-".$slug.'2_test', $post->ID);
+    }
   }
 
   return [$rank_obj, $rank_obj2];

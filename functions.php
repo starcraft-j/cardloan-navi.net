@@ -167,6 +167,9 @@ function get_link_param($args = []) {
   ];
   if (is_page('bank') || is_page('bank-cardloan') || (isset($_GET['bank']) )) {
     $params['pg'] = 'bank';
+  } 
+  if (isset($_GET['ad'])) {
+    $params['ad'] = $_GET['ad'];
   }
   $url = home_url('/link?' . http_build_query($params));
   

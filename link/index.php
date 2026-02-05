@@ -12,6 +12,15 @@
 
   if(isset($_GET['pg'])) {
     $link = !empty(get_field('url-'.$_GET['pg'], $postID)) ? get_field('url-'.$_GET['pg'], $postID) : $link;
+    if(isset($_GET['ad'])) {
+      if(!empty(get_field('url-'.$_GET['pg'].'_'.$_GET['ad'], $postID))) {
+        $link = get_field('url-'.$_GET['pg'].'_'.$_GET['ad'], $postID);
+      } else {
+        $link = !empty(get_field('url-'.$_GET['pg'], $postID)) ? get_field('url-'.$_GET['pg'], $postID) : $link;
+      }
+    }
+  } elseif (isset($_GET['ad'])) {
+    $link = !empty(get_field('url-'.$_GET['ad'], $postID)) ? get_field('url-'.$_GET['ad'], $postID) : $link;
   }
 
   $queryString = $_SERVER['QUERY_STRING'];

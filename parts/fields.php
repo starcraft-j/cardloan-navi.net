@@ -33,7 +33,7 @@ $interestSup = get_field('rank-table_interest_sup');
 
 // 比較表のみ使用
 $interestFreeSup = get_field('rank-table_Interest-free_sup');
-$interestFreeText = get_field('rank-table_interest-free_text');
+$interestFreeText = get_field('rank-table_Interest-free_text');
 
 $examSpeedSupHikaku = get_field('rank-table_exam-speed_sup_hikaku');
 $loanSpeedSupHikaku = get_field('rank-table_loan-speed_sup_hikaku');

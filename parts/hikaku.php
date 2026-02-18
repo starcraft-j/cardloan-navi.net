@@ -11,6 +11,7 @@
 
         </figure>
 
+        <?php if(!(isset($_GET['v']) && $_GET['v'] == 2)) : ?>
 
         <dl class="p-hikaku__head__timer title-timer">
           
@@ -23,6 +24,7 @@
 
         </dl>
 
+        <?php endif; ?>
       </hgroup>
 
 

@@ -3,7 +3,11 @@
 
       <hgroup class="p-choice__head">
         <figure>
-          <img src="<?= esc_url( get_template_directory_uri() ); ?>/images/top-choice-title.svg" alt="" width="100" height="100" loading="lazy">
+          <?php if(isset($_GET['v']) && $_GET['v'] == 2) : ?>
+            <img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/dist/front/top-choice-title_v2.svg" alt="" width="100" height="100" loading="lazy">
+          <?php else : ?>
+            <img src="<?= esc_url( get_template_directory_uri() ); ?>/images/top-choice-title.svg" alt="" width="100" height="100" loading="lazy">
+          <?php endif; ?>
         </figure>
       </hgroup>
 
@@ -37,8 +41,8 @@
 
             $choiceArrayV2 = [
               1 => [
-                'title' => '今すぐ借りられる',
-                'description' => '<span class="bold bg-y">最短当日融資が可能</span>なカードローンを選びましょう。',
+                'title' => '融資のタイミング',
+                'description' => '<span class="bold bg-y">申込完了後、最短当日融資が可能</span>なカードローンを選びましょう。',
                 'icon' => 'choice-icon-1_v2'
               ],
               2 => [
@@ -48,7 +52,7 @@
               ],
               3 => [
                 'title' => 'とにかく便利で使いやすい',
-                'description' => '口座振込や提携ATMでかんたんに借入・返済ができれば便利です。特に、はじめての方には<span class="bold bg-y">無利息で借りられる期間があるカードローン</span>がおすすめです。',
+                'description' => '口座振込や提携ATMで借入・返済ができれば便利です。特に、はじめての方には<span class="bold bg-y">サポートが充実しているカードローン</span>がおすすめです。',
                 'icon' => 'choice-icon-4'
               ]
             ];

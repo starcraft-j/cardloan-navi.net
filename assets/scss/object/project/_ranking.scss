@@ -386,11 +386,18 @@
 					padding: 4px;
 					font-size: 0.9rem;
 					border-top: 1px solid #f5f4ef;
+          br {
+            display: none;
+          }
 					@include mq(pc) {
 						border-top-width: 2px;
 						font-size: 1.8rem;
 						padding: 10px 0;
 					}
+          small {
+            display: block;
+            font-size: min(2.4vw, 12px);
+          }
 				}
 			}
 			.item-infor {

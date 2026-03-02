@@ -313,7 +313,7 @@ function removeParams($url) {
 function get_rank_obj() {
   global $post;
   $slug = $post->post_name;
-  $rank_obj = get_field("ranking", $post->ID);
+  $rank_obj = isset($_GET['v']) && $_GET['v'] == 2 ? get_field("ranking_v{$_GET['v']}", $post->ID) : get_field("ranking", $post->ID);
   $rank_obj2 = get_field("ranking2", $post->ID);
   
   if(!is_front_page()) {
@@ -322,6 +322,9 @@ function get_rank_obj() {
   } else {
     if(isset($_GET['test'])) {
       $rank_obj = get_field("ranking_test", $post->ID);
+      if(isset($_GET['v']) && $_GET['v'] == 2) {
+        $rank_obj = get_field("ranking_v{$_GET['v']}_test", $post->ID);
+      }
       // $rank_obj2 = get_field("ranking-".$slug.'2_test', $post->ID);
     }
   }

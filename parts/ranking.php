@@ -125,8 +125,7 @@
             }
           ?>
 					<div class="item-head__catch">
-						<p class="u-device-pc"><?= $catch; ?></p>
-						<p class="u-device-sp"><?= !empty($catchSp) ? $catchSp : $catch; ?></p>
+						<p><?= $catch; ?></p>
 					</div>
 
 

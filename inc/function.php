@@ -50,21 +50,21 @@
 
 <?php
 
-function limit($data) {
+function limit($data, $prefix = '最大') {
   if($data == 1) {
-    echo "最大1,000万円";
+    echo $prefix . "1,000万円";
   } elseif($data == 2) {
-    echo "最大900万円";
+    echo $prefix . "900万円";
   } elseif($data == 3) {
-    echo "最大800万円";
+    echo $prefix . "800万円";
   } elseif($data == 4) {
-    echo "最大500万円";
+    echo $prefix . "500万円";
   } elseif($data == 5) {
-    echo "最大300万円";
+    echo $prefix . "300万円";
   } elseif($data == 6) {
-    echo "最大200万円";
+    echo $prefix . "200万円";
   } else {
-    echo "最大100万円";
+    echo $prefix . "100万円";
   }
 }
 

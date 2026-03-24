@@ -45,6 +45,8 @@
 		<ul class="p-ranking__main <?= $loop === 1 ? '-top' : '-bottom' ?> <?='-'.$slug?>">
 
 			<?php 
+
+
 				if($loop == 1) {
 					$rank_objects;
 				} elseif($loop == 2) {
@@ -63,6 +65,8 @@
 
 
           $hokuyoLoan = $post->ID === 1249;
+          $ufj = $post->ID == 133;
+
 			?>
 
 
@@ -202,7 +206,7 @@
                   if($limitText) {
                     echo $limitText;
                   } else {
-                    limit($limit); 
+                    limit($limit, $ufj ? '最高' : '最大'); 
                   }
                   if($limitSup) {
                     echo '<small class="small">'.$limitSup.'</small>';
@@ -224,6 +228,7 @@
 								$fieldObj = get_field_object ("rank-table_exam-speed_2024");
 								$examSpeed = $fieldObj['choices'];
                 $promise = $post->ID == 119;
+
 							?>
 
 							<td <?php tableMaru(get_field("rank-table_exam-speed_2024")) ?>>

@@ -72,6 +72,7 @@
               $catchSp = $catchSp;
             }
           }
+          
         ?>
 				<p class="u-device-pc"><?= $catch; ?></p>
 				<p class="u-device-sp"><?= !empty($catchSp) ? $catchSp : $catch; ?></p>
@@ -110,7 +111,10 @@
             <span class="nenritsu" style="display:none"><?php echo $interestRow; ?></span>
 					</td>
 
-					<th><?= $post->ID == 2605 ? 'ご利用限度額' : '借入限度額' ?></th>
+					<th><?= 
+          
+          $ufj = $post->ID == 133;
+          $post->ID == 2605 ? 'ご利用限度額' : '借入限度額' ?></th>
 
 					<td style="background-image:url(<?= esc_url( get_template_directory_uri() ); ?>/images/icons/maru-0<?= $limit <= 3 ? '1' : '2'; ?>.svg);">
             <span class="gendo" style="display:none"><?php echo $limit; ?></span>
@@ -118,7 +122,7 @@
               if($limitText) {
                 echo $limitText;
               } else {
-                limit($limit); 
+                limit($limit, $ufj ? '最高' : '最大'); 
               }
               if($limitSup) {
                 echo '<small class="small">'.$limitSup.'</small>';

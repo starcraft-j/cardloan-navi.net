@@ -26,6 +26,22 @@
   &.open {
     display: flex;
   }
+  &.-yokohama, &.-d {
+    &.is-active {
+      display: flex;
+    }
+    .js-popup-ctt__inner {
+      h2 {
+        padding: min(4vw, 2rem) ;
+        span {
+          display: inline;
+        }
+        &.title {
+          font-size: min(5vw, 2rem);
+        }
+      }
+    }
+  }
   &__inner {
     padding: 2rem;
     background: $color-white;
@@ -38,7 +54,7 @@
     justify-content: center;
     @include mq(pc) {
       width: 800px;
-      height: 70vh;
+      height: 850px;
     }
     a {
       background: transparent;
@@ -115,10 +131,10 @@
           width: 70%;
         }
         @include mq(pc) {
-          width: 340px;
+          width: 356px;
           margin: 0 auto 2rem;
           img {
-            width: 70%;
+            width: 100%;
           }
         }
       }
@@ -340,6 +356,8 @@
 }
 
 
+
+
 .js-star-ctt {
   width: 100vw;
   height: 100vh;
@@ -412,7 +430,7 @@
         @include mq(pc) {
           margin-bottom: 2rem;
           img {
-            width: 40%;
+            width: 356px;
           }
         }
 

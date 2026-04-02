@@ -158,6 +158,8 @@ function get_icon_maru($data) {
 
 
 
+
+
 function get_link_param($args = []) {
   global $post;
   $post_id = isset($args['post_id']) ? $args['post_id'] : get_the_ID();
@@ -174,6 +176,25 @@ function get_link_param($args = []) {
   $url = home_url('/link?' . http_build_query($params));
   
   return $url;
+}
+
+function get_link_param_new($args = []) {
+  global $post;
+  $post_id = isset($args['post_id']) ? $args['post_id'] : get_the_ID();
+  $target_post = get_post($post_id);
+  $post_name = $target_post ? $target_post->post_name : $post->post_name;
+
+  // if ((is_page('bank') || is_page('bank-cardloan')) || (isset($_GET['bank']) )) {
+  //   $url = home_url("/link?item={$post_name}&bank=1");
+  // } 
+  // $url = home_url("/link?item={$post_name}");
+
+  if (is_page('bank') || is_page('bank-cardloan') || isset($_GET['bank'])) {
+  $url = home_url("/link?item={$post_name}&bank=1");
+} else {
+  $url = home_url("/link?item={$post_name}");
+}
+  return $url ;
 }
 
 
@@ -227,7 +248,7 @@ function get_popup_link($is_table_btn = false, $is_no_sub_btn = false) {
 
   return sprintf(
     '<a href="%s" class="%s" target="_blank" aria-label="%s">',
-    get_link_param(),
+    get_link_param_new(),
     $final_class,
     esc_attr($aria_label)
   );
@@ -306,6 +327,7 @@ function removeParams($url) {
   $fragment = isset($parsed_url['fragment']) ? '#' . $parsed_url['fragment'] : '';
   return $parsed_url['path'] . ($new_query ? '?' . $new_query : '') . $fragment;
 }
+
 
 
 // 👑 ランクオブジェクト取得 👑 

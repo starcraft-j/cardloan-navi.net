@@ -183,6 +183,13 @@
     }
 	}
 	&__main {
+    .rank-item {
+      &.-d {
+        small, sup {
+          color: $color-black;
+        }
+      }
+    }
 		padding: 1rem;
 		@include mq(pc) {
 			padding: 2rem;
@@ -395,7 +402,7 @@
 						padding: 10px 0;
 					}
           small {
-            display: block;
+            // display: block;
             font-size: min(2.4vw, 12px);
           }
 				}

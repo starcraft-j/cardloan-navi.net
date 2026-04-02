@@ -66,11 +66,12 @@
 
           $hokuyoLoan = $post->ID === 1249;
           $ufj = $post->ID == 133;
+          $dSmart = $post->ID == 472;
 
 			?>
 
 
-			<li class="p-ranking-item rank-item rank<?= $key + 1; ?>">
+			<li class="p-ranking-item rank-item rank<?= $key + 1; ?> <?= $dSmart ? '-d' : '' ?>">
 
 				<?php if(is_page('speed')) : ?>
 					<?php

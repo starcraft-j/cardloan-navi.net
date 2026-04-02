@@ -29,7 +29,7 @@ const ftpUploadFilesLink = [
   './link/**/*',
 ]
 const ftpUploadFilesInc = [
-  './inc/*.php',
+  './inc/**/*.php',
 ]
 const ftpUploadFilesTag = [
   './tag/*.php',

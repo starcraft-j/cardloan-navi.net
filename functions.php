@@ -183,18 +183,19 @@ function get_link_param_new($args = []) {
   $post_id = isset($args['post_id']) ? $args['post_id'] : get_the_ID();
   $target_post = get_post($post_id);
   $post_name = $target_post ? $target_post->post_name : $post->post_name;
-
-  // if ((is_page('bank') || is_page('bank-cardloan')) || (isset($_GET['bank']) )) {
-  //   $url = home_url("/link?item={$post_name}&bank=1");
-  // } 
-  // $url = home_url("/link?item={$post_name}");
+  $params = [
+    'item' => $post_name,
+  ];
 
   if (is_page('bank') || is_page('bank-cardloan') || isset($_GET['bank'])) {
-  $url = home_url("/link?item={$post_name}&bank=1");
-} else {
-  $url = home_url("/link?item={$post_name}");
-}
-  return $url ;
+    $params['pg'] = 'bank';
+  }
+  if (isset($_GET['ad'])) {
+    $params['ad'] = $_GET['ad'];
+  }
+
+  $url = home_url('/link?' . http_build_query($params));
+  return $url;
 }
 
 

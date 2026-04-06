@@ -374,6 +374,10 @@ function renderTag($val, $isActive = false, $postId = null) {
       $isActive ? ' style="color:#eee"' : ''
     );
   }
+
+  if($val == "即日融資") {
+    $tagText = '最短'.$val;
+  }
   
   return sprintf('<li class="%s">%s</li>', $className, $tagText);
 }

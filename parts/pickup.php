@@ -437,7 +437,7 @@
 
 				<?php else : ?>
 
-					<div class="rank-small-accordion">
+					<div class="rank-small-accordion item-accordion">
 						<button class="acc-btn" id="js-acc-btn" @click="clickedAccBtn(<?= $key ?>)">
 							<span><?=$post->post_title == "レイク" ? "注意点と貸付条件について" : "注釈を見る" ?></span>
 							<span class="arrow" :class="{'open': isSupAcc[<?= $key ?>]}"></span>

@@ -362,12 +362,14 @@ function get_rank_obj() {
 function renderTag($val, $isActive = false, $postId = null) {
   $className = $isActive ? 'tag-color' : 'tag-grey';
   $tagText = $val;
+  $mitsui = $postId == 131;
+  $dSmart = $postId == 472;
   
   if ($val == "バレずらい") {
     $tagText = (isset($_GET['ad']) && $_GET['ad'] == 'video') ? 'バレない' : 'バレづらい';
   }
   
-  if ($postId == 131 && $val == "WEB完結") {
+  if ($mitsui && $val == "WEB完結") {
     return sprintf(
       '<li class="%s">%s<small class="small"%s>※</small></li>',
       $className,
@@ -376,8 +378,19 @@ function renderTag($val, $isActive = false, $postId = null) {
     );
   }
 
+
+
   if($val == "即日融資") {
     $tagText = '最短'.$val;
+    if($dSmart) {
+      $tagText .= '<small class="small">※3</small>';
+    }
+  }
+
+  if($val == '無利息期間あり') {
+    if($dSmart) {
+      $tagText .= '<small class="small">※6</small>';
+    }
   }
   
   return sprintf('<li class="%s">%s</li>', $className, $tagText);

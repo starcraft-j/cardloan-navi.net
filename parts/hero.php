@@ -12,8 +12,8 @@
               <source srcset="<?= esc_url( get_template_directory_uri() ); ?>/assets/dist/front/fv-v2_sp.webp" media="(max-width: 767px)">
               <img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/dist/front/fv-v2.webp" alt="" width="978" height="457" fetchpriority="high">
             <?php else : ?>
-              <source srcset="https://cardloan-navi.net/wp-content/uploads/2025/08/fv-new-sp-rs.webp" media="(max-width: 767px)">
-			        <img src="https://cardloan-navi.net/wp-content/uploads/2025/08/fv-new-pc-rs.webp" alt="" width="978" height="457" fetchpriority="high">
+              <source srcset="<?= esc_url( get_template_directory_uri() ); ?>/assets/dist/front/fv-new-sp-rs_2.webp" media="(max-width: 767px)">
+			        <img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/dist/front/fv-new-pc-rs_2.webp" alt="" width="978" height="457" fetchpriority="high">
             <?php endif; ?>
           </picture>
 

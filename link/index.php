@@ -10,9 +10,6 @@
   $catch = get_field('catch', $postID);
   $sup = get_field('sup-button', $postID);
 
-  if(isset($_GET['pup'])) {
-    $link = get_field('url-popup_'.$_GET['pup'], $postID);
-  }
   
   if(isset($_GET['pg'])) {
     $link = !empty(get_field('url-'.$_GET['pg'], $postID)) ? get_field('url-'.$_GET['pg'], $postID) : $link;

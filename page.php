@@ -24,34 +24,38 @@
       $rank_objects = is_array($rank_objects) ? $rank_objects : $rank_objects = get_field('ranking', $post->ID);  
       $rank_objects2 = is_array($rank_objects2) ? $rank_objects2 : $rank_objects2 =  $rank_obj2 = get_field("ranking-".$slug.'2', $post->ID);
 
-      foreach($rank_objects as $post) {
-        if(get_post_status($post->ID) !== 'private') {
-          $items++;
-        }
-      }
-      foreach($rank_objects2 as $post) {
-        if(get_post_status($post->ID) !== 'private') {
-          $items2++;
-        }
-      }
-      function includePopup($objects, $targetId, $filename) {
-        if ($objects && in_array($targetId, array_column($objects, 'ID'))) {
-          include "inc/parts/" . $filename;
-        }
-      }
+      if($rank_objects && is_array($rank_objects)):
 
-      $popupFiles = [
-        4134 => 'popup-star.php',  // 東京スター銀行
-        472  => 'popup-d.php',     // プロミス
-        122  => 'popup-lake.php'   // レイク
-      ];
-      
-
-      foreach ([$rank_objects, $rank_objects2] as $objects) {
-        foreach ($popupFiles as $id => $file) {
-          includePopup($objects, $id, $file);
+        foreach($rank_objects as $post) {
+          if(get_post_status($post->ID) !== 'private') {
+            $items++;
+          }
         }
-      }
+        foreach($rank_objects2 as $post) {
+          if(get_post_status($post->ID) !== 'private') {
+            $items2++;
+          }
+        }
+        function includePopup($objects, $targetId, $filename) {
+          if ($objects && in_array($targetId, array_column($objects, 'ID'))) {
+            include "inc/parts/" . $filename;
+          }
+        }
+
+        $popupFiles = [
+          4134 => 'popup-star.php',  // 東京スター銀行
+          472  => 'popup-d.php',     // プロミス
+          122  => 'popup-lake.php'   // レイク
+        ];
+        
+
+        foreach ([$rank_objects, $rank_objects2] as $objects) {
+          foreach ($popupFiles as $id => $file) {
+            includePopup($objects, $id, $file);
+          }
+        }
+
+      endif;
     ?>
 
 

@@ -5,7 +5,7 @@
       <figure class="p-hero__main">
 
 
-        <?php if(is_front_page()) : //TOP ?>
+        <?php if(is_front_page() || is_page('popup')) : //TOP ?>
 
           <picture>
             <?php if(isset($_GET['v']) && $_GET['v'] == 2) : ?>

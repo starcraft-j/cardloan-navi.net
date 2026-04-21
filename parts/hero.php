@@ -85,11 +85,17 @@
         <?php 
           if(is_front_page()) {
             if(!(isset($_GET['v']) && $_GET['v'] == 2)) { include "timer-top.php"; }
+            
+
           } elseif(is_page('speed')) {
             include "timer-speed.php";
           }
 				?>
 				
       </figure>
+
+      <?php if(is_front_page()) : ?>
+        <div class="sup-box fv-sup"><sup>dスマホローンの最短即日審査は17時までの申込が必要です。※2</sup></div>
+      <?php endif; ?>
 
     </section>

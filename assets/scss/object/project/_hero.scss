@@ -9,8 +9,12 @@
 	p-hero
 ----------------------------------------*/
 .p-hero {
+  .fv-sup {
+    padding: 10px min(3vw, 30px) 0 0;
+    text-align: right;
+  }
   &.-top {
-    background: #dfeff6;
+    // background: #dfeff6;
     padding-bottom: 6px;
   }
 	&__main {

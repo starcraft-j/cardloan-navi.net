@@ -142,11 +142,12 @@
 
 					<?php
 						$fieldObj = get_field_object ("rank-table_exam-speed_2024");
-						$examSpeed = $fieldObj['choices'];
+						$examSpeedChoices = $fieldObj['choices'] ?? [];
+            $examSpeedKey = get_field("rank-table_exam-speed_2024");
             $promise = $post->ID == 119;
 					?>
 
-					<td <?php tableMaru(get_field("rank-table_exam-speed_2024")) ?>>
+					<td <?php tableMaru($examSpeedKey) ?>>
 
             <span class="shinsa" style="display:none">
               <?php the_field("rank-table_exam-speed_2024"); ?>
@@ -157,7 +158,7 @@
               if(!empty(get_field('rank-table_exam-speed_text'))) {
                 echo get_field('rank-table_exam-speed_text');
               } else {
-                echo $examSpeed[get_field("rank-table_exam-speed_2024")];
+                echo $examSpeedChoices[$examSpeedKey] ?? '';
               }
               echo $promise ? '</span>' : '';
               if($examSpeedSup ) { echo '<small class="small">'.$examSpeedSup.'</small>'; }
@@ -170,10 +171,11 @@
 					<th>融資時間</th>
 					<?php
 						$fieldObj = get_field_object("rank-table_loan-speed_2024");
-						$examSpeed = $fieldObj['choices'];
+						$loanSpeedChoices = $fieldObj['choices'] ?? [];
+            $loanSpeedKey = get_field("rank-table_loan-speed_2024");
 					?>
 
-					<td <?php tableMaru(get_field("rank-table_loan-speed_2024")) ?>>
+					<td <?php tableMaru($loanSpeedKey) ?>>
 
             <span class="yuushi" style="display:none">
               <?php the_field("rank-table_loan-speed_2024"); ?>
@@ -184,7 +186,7 @@
               if(!empty(get_field('rank-table_loan-speed_text'))) {
                 echo get_field('rank-table_loan-speed_text');
               } else {
-                echo $examSpeed[get_field("rank-table_loan-speed_2024")];
+                echo $loanSpeedChoices[$loanSpeedKey] ?? '';
               }
               echo $promise ? '</span>' : '';
               if($loanSpeedSup ) { echo '<small class="small">'.$loanSpeedSup.'</small>'; }

@@ -75,13 +75,14 @@
               <?php
                 /** 審査時間 */
                 $fieldObj = get_field_object("rank-table_exam-speed_2024");
-                $examSpeed = $fieldObj['choices'];
+                $examSpeedChoices = $fieldObj['choices'] ?? [];
+                $examSpeedKey = get_field("rank-table_exam-speed_2024");
                 $promise = $post->ID == 119;
               ?>
 
-              <td <?php tableMaru(get_field("rank-table_exam-speed_2024")) ?>>
+              <td <?php tableMaru($examSpeedKey) ?>>
                 <?= $promise ? '<span class="red">' : '' ?> 
-                <?=$examSpeed[get_field("rank-table_exam-speed_2024")]?>
+                <?= get_field('rank-table_exam-speed_text') ?: ($examSpeedChoices[$examSpeedKey] ?? ''); ?>
                 <?= $promise ? '</span>' : '' ?> 
                 <?= $examSpeedSupHikaku ? '<small class="small">'.$examSpeedSupHikaku.'</small>' : '<small class="small">'.$examSpeedSup.'</small>'; ?>
               </td>
@@ -89,11 +90,12 @@
               <?php
                 /** 融資時間 */
                 $fieldObj = get_field_object("rank-table_loan-speed_2024");
-                $examSpeed = $fieldObj['choices'];
+                $loanSpeedChoices = $fieldObj['choices'] ?? [];
+                $loanSpeedKey = get_field("rank-table_loan-speed_2024");
               ?>
-              <td <?php tableMaru(get_field("rank-table_loan-speed_2024")) ?>>
+              <td <?php tableMaru($loanSpeedKey) ?>>
                 <?= $promise ? '<span class="red">' : '' ?> 
-                <?=$examSpeed[get_field("rank-table_loan-speed_2024")]?>
+                <?= get_field('rank-table_loan-speed_text') ?: ($loanSpeedChoices[$loanSpeedKey] ?? ''); ?>
                 <?= $promise ? '</span>' : '' ?> 
                 <?= $loanSpeedSupHikaku ? '<small class="small">'.$loanSpeedSupHikaku.'</small>' : '<small class="small">'.$loanSpeedSup.'</small>'; ?>
               </td>
